@@ -1,0 +1,40 @@
+body {
+  background-color: #DC143C;
+  color: #fff;
+}
+
+.mainBody {
+  height: 1500px;
+  width: 5000px;
+  background-color: #DC143C;
+}
+
+.header { /*why wont it cover the whole top*/
+  height: 150px;
+  width: 100%;
+  border: 3px solid #fff;
+  position: fixed;
+    top: 0px;
+    margin: 0px;
+  z-index: 20;
+}
+
+.gameOne {
+
+}
+
+.gameTwo {
+
+}
+
+.gameThree {
+
+}
+
+.randomPlay {
+
+}
+
+.playerHistory {
+
+}
