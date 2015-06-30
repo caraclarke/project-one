@@ -5,7 +5,7 @@ body {
 
 .mainBody {
   height: 1500px;
-  width: 5000px;
+  width: 1450px; /*adjust */
   background-color: #DC143C;
 }
 
@@ -19,16 +19,42 @@ body {
   z-index: 20;
 }
 
-.gameOne {
+.games {
+  height: 700px;
+  width: 100%;
+  border: 4px dashed gray;
+  position: relative;
+    top: 200px;
+}
 
+.gameOne {
+  height: 300px;
+  width: 300px;
+  border: 3px dashed #fff;
+  position: relative;
+    top: 0px;
+    left: 50px;
+  margin: 10px;
 }
 
 .gameTwo {
-
+  height: 300px;
+  width: 300px;
+  border: 3px dashed #fff;
+  position: relative;
+    top: 0px;
+    left: 400px;
+  margin: 10px;
 }
 
 .gameThree {
-
+  height: 300px;
+  width: 300px;
+  border: 3px dashed #fff;
+  position: relative;
+    top: 0px;
+    left: 800px;
+  margin: 10px;
 }
 
 .randomPlay {
