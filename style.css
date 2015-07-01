@@ -1,22 +1,21 @@
 body {
   background-color: #DC143C;
-  color: #fff;
+}
+
+#header {
+  height: 150px;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+    top: 0px;
+    right: 1px;
+  z-index: 20;
 }
 
 .mainBody {
   height: 1500px;
-  width: 1450px; /*adjust */
-  background-color: #DC143C;
-}
-
-.header { /*why wont it cover the whole top*/
-  height: 150px;
-  width: 100%;
-  border: 3px solid #fff;
-  position: fixed;
-    top: 0px;
-    margin: 0px;
-  z-index: 20;
+  width: 1350px; /*adjust */
+  z-index: 0;
 }
 
 .games {
@@ -24,43 +23,47 @@ body {
   width: 100%;
   border: 4px dashed gray;
   position: relative;
-    top: 200px;
+    top: 300px;
 }
 
 .gameOne {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border: 3px dashed #fff;
   position: relative;
-    top: 0px;
-    left: 50px;
-  margin: 10px;
+    top: 25px;
+    left: 25px;
+  margin: 5px;
 }
 
 .gameTwo {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border: 3px dashed #fff;
-  position: relative;
-    top: 0px;
-    left: 400px;
-  margin: 10px;
+  position: absolute;
+    top: 25px;
+    left: 475px;
+  margin: 5px;
 }
 
 .gameThree {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border: 3px dashed #fff;
-  position: relative;
-    top: 0px;
-    left: 800px;
-  margin: 10px;
+  position: absolute;
+    top: 25px;
+    left: 925px;
+  margin: 5px;
 }
 
 .randomPlay {
-
+  height: 100px;
+  width: 150px;
+  border: 2px solid #fff;
 }
 
 .playerHistory {
-
+  height: 200px;
+  width: 300px;
+  border: 5px solid gray;
 }
