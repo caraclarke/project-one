@@ -95,9 +95,9 @@ aside {
   position: absolute;
     top: 150px;
     left: 1100px;
-    width: 200px;
+    width: 20%;
   z-index: 3;
-  height: 75%;
+  height: 97%;
 }
 
 footer {
