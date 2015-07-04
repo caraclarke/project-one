@@ -1,5 +1,6 @@
 body {
-  background-color: #DC143C;
+  background-color: #000;
+  color: #fff;
 }
 
 #header {
@@ -63,12 +64,14 @@ body {
 .randomPlay {
   border-radius: 50%;
   width: 350px;
-  height: 350px;
+  height: 300px;
   border: 2px solid #fff;
   float: left;
-  margin-top: 400px;
+  margin-top: 375px;
+  margin-left: 50px;
   z-index: 3;
   text-align: center;
+  padding-top: 50px;
 }
 
 .playerHistory {
