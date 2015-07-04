@@ -1,21 +1,23 @@
 body {
   background-color: #000;
   color: #fff;
+  font-family: arial, helvetica, sans-serif;
+  font-size: small;
+  margin: 0px;
 }
 
-#header {
-  height: 150px;
+header {
+  height: 108px;
   width: 100%;
   background-color: #fff;
   position: fixed;
-    top: 0px;
-    right: 1px;
+    margin: 0px 1px 0px 0px;
   z-index: 20;
 }
 
 .mainBody {
   height: 1500px;
-  width: 1350px; /*adjust */
+  width: 1350px;
   z-index: 0;
 }
 
@@ -84,9 +86,27 @@ body {
   margin-top: 350px;
 }
 
-.footer {
+aside {
+  display: table-cell;
+  background-color: grey;
+  font-size: 105;
+  padding: 15px;
+  vertical-align: top;
+  position: absolute;
+    top: 150px;
+    left: 1100px;
+    width: 200px;
+  z-index: 3;
+  height: 75%;
+}
+
+footer {
+  background-color: red;
   color: #fff;
   clear: bottom;
-  font-size: 15px;
   text-align: center;
+  padding: 15px;
+  margin: 0px 10px 10px 10px;
+  font-size: 90%;
+  font-family: arial, helvetica, sans-serif;
 }
