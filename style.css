@@ -10,6 +10,7 @@ header {
   height: 108px;
   width: 100%;
   background-color: #fff;
+  color: #000;
   position: fixed;
     margin: 0px 1px 0px 0px;
   z-index: 20;
@@ -21,7 +22,7 @@ header {
   z-index: 0;
   position: absolute;
   margin-right: auto;
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
 .games {
@@ -33,25 +34,23 @@ header {
   display: inline-block;
 }
 
-/*.gameOne {
-  height: 300px;
-  width: 300px;
-  border: 3px dashed #fff;
+.gameOne {
+  height: 45%;
+  width: 45%;
+  background-color: #000;
   position: relative;
     margin: 0 auto;
-    margin-bottom: 15px;
   z-index: 2;
 }
 
 .gameTwo {
-  height: 300px;
-  width: 300px;
-  border: 3px dashed #fff;
+  height: 45%;
+  width: 45%;
+  background-color: #000;
   position: relative;
     margin: 0 auto;
-    margin-bottom: 15px;
   z-index: 2;
-}*/
+}
 
 .leftsidebar {
   background-color: white;
@@ -63,25 +62,36 @@ header {
      margin: 15% 2% 2% 2%;
 }
 
-/*.randomPlay {
+.randomPlay {
   text-align: center;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  border: 2px solid #fff;
+  width: 150px;
+  height: 150px;
+  background-color: #000;
+  position: relative;
+    margin: 0 auto;
+    margin-top: 15%;
+    z-index: 3;
+}
+
+.playerHistory {
+  height: 175px;
+  width: 175px;
+  background-color: #000;
   position: relative;
     margin: 0 auto;
     z-index: 3;
 }
 
-.playerHistory {
-  height: 50%;
-  width: 50%;
-  border: 5px solid gray;
+.newGame {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #000;
   position: relative;
     margin: 0 auto;
     z-index: 3;
-}*/
+}
 
 aside {
   background-color: grey;
