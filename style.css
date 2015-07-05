@@ -1,5 +1,3 @@
-/*main body*/
-
 body {
   background-color: #000;
   color: #fff;
@@ -18,16 +16,20 @@ header {
   z-index: 20;
 }
 
+header h1 {
+  text-align: center;
+  font-size: 65px;
+  margin: 0 auto;
+}
+
 #mainBody {
-  height: 768px;
-  width: 1275px;
+  height: 1200px;
+  width: 1300px;
   z-index: 0;
   position: absolute;
   margin-right: auto;
   margin-left: 25px;
 }
-
-/*center*/
 
 .games {
   height: 75%;
@@ -38,7 +40,7 @@ header {
   display: inline-block;
 }
 
-.gameOne {
+#gameOne {
   height: 45%;
   width: 45%;
   background-color: #000;
@@ -163,6 +165,9 @@ aside {
     margin: 15% 2% 2% 2%;
 }
 
+aside h1 {
+  text-align: center;
+}
 
 /*footer*/
 
@@ -179,3 +184,43 @@ footer {
     margin: 3% 0% 0% 0%;
 }
 
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gameboard {
+  width: 330px;
+  height: 310px;
+  border: 1px solid #ccc;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.tile {
+  display: inline-flex;
+  border: 1px solid #333;
+  width: 100px;
+  height: 100px;
+}
+
+.table {
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.table tr {
+  margin: 0px;
+  padding: 0px;
+}
+
+.table td {
+  padding: 0px;
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px
+}
