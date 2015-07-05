@@ -1,3 +1,5 @@
+/*main body*/
+
 body {
   background-color: #000;
   color: #fff;
@@ -24,6 +26,8 @@ header {
   margin-right: auto;
   margin-left: 25px;
 }
+
+/*center*/
 
 .games {
   height: 75%;
@@ -52,6 +56,8 @@ header {
   z-index: 2;
 }
 
+/*left side bar and contents*/
+
 .leftsidebar {
   background-color: white;
   color: black;
@@ -62,16 +68,41 @@ header {
      margin: 15% 2% 2% 2%;
 }
 
-.randomPlay {
-  text-align: center;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  background-color: #000;
-  position: relative;
+#randomPlay {
+    width: 150px;
     margin: 0 auto;
-    margin-top: 15%;
-    z-index: 3;
+}
+
+.randomPlay-circle {
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    border:10px solid #cfdcec;
+    margin-top: 10px;
+    overflow:hidden;
+    background: #4679BD;
+    box-shadow: 0 0 3px gray;
+}
+
+.randomPlay-circle:hover {
+    background:#30588e;
+}
+
+#randomPlay p {
+    display:block;
+    float:left;
+    width:100%;
+    padding-top:50%;
+    padding-bottom:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 .playerHistory {
@@ -83,15 +114,44 @@ header {
     z-index: 3;
 }
 
-.newGame {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  background-color: #000;
-  position: relative;
+#newGame {
+    width: 150px;
     margin: 0 auto;
-    z-index: 3;
 }
+
+.newGame-circle {
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    border:10px solid #cfdcec;
+    margin-top: 10px;
+    overflow:hidden;
+    background: #4679BD;
+    box-shadow: 0 0 3px gray;
+}
+
+.newGame-circle:hover {
+    background:#30588e;
+}
+
+#newGame p {
+    display:block;
+    float:left;
+    width:100%;
+    padding-top:50%;
+    padding-bottom:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/*right side bar */
 
 aside {
   background-color: grey;
@@ -102,6 +162,9 @@ aside {
   position: relative;
     margin: 15% 2% 2% 2%;
 }
+
+
+/*footer*/
 
 footer {
   height: 25px;
