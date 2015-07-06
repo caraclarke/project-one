@@ -1,8 +1,24 @@
 'use strict';
 
-var $ = require("jQuery");
+window.onload = function () {
+  getPlayers();
+  addEventOutputTracking();
+}
+
+// var $ = require("jQuery");
 
 var turn = "X";
+
+function getPlayers () {
+
+  for (var i = 1; i <= 2; i++) {
+    var userName = prompt("What is your name?");
+
+    if (userName) {
+      addEventOutputTracking("Nice to meet you " + userName + "! You are Player " + i);
+    }
+  }
+};
 
 function move(cell) {
   var cellElement = document.getElementById(cell);
@@ -57,9 +73,9 @@ $('#clear').on('click', function() {
   }
 });
 
-  function addEventOutputTracking (eventName, outputText, extraText) {
-    var node;
-    var pChildNode = document.createElement("p");
+function addEventOutputTracking (eventName, outputText, extraText) {
+  var node;
+  var pChildNode = document.createElement("p");
 
     node = document.getElementById("eventOutput");
     node.appendChild(pChildNode);
