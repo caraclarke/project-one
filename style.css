@@ -99,6 +99,26 @@ aside h1 {
   text-align: center;
 }
 
+#playerOne {
+  height: 250px;
+  width: 250px;
+  position: relative;
+    margin: 0 auto;
+    margin-top: 45%;
+  background-color: white;
+  color: black;
+}
+
+#playerTwo {
+  height: 250px;
+  width: 250px;
+  position: relative;
+    margin: 0 auto;
+    margin-top: 30px;
+  background-color: white;
+  color: black;
+}
+
 /*left sidebar and contents*/
 
 .leftsidebar {

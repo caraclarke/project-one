@@ -2,7 +2,7 @@
 
 window.onload = function () {
   getPlayers();
-  addEventOutputTracking();
+  // addEventOutputTracking();
 }
 
 // var $ = require("jQuery");
@@ -10,14 +10,14 @@ window.onload = function () {
 var turn = "X";
 
 function getPlayers () {
+    var playerOne = prompt("What is your name?");
+    var playerTwo = prompt("What is your name?");
 
-  for (var i = 1; i <= 2; i++) {
-    var userName = prompt("What is your name?");
 
-    if (userName) {
-      addEventOutputTracking("Nice to meet you " + userName + "! You are Player " + i);
+    if (playerOne && playerTwo) {
+      document.getElementById("playerOne").innerHTML = playerOne + " - You are Player X! Your turn is first.";
+      document.getElementById("playerTwo").innerHTML = playerTwo + " - You are Player O!";
     }
-  }
 };
 
 function move(cell) {
@@ -27,8 +27,12 @@ function move(cell) {
     cellElement.innerHTML = turn;
     if (turn == "X") {
       turn = "O";
+      document.getElementById("playerTwo").innerHTML = "Your turn!";
+      document.getElementById("playerOne").innerHTML = "You are up next.";
     } else {
       turn = "X";
+      document.getElementById("playerOne").innerHTML = "Your turn!";
+      document.getElementById("playerTwo").innerHTML = "You are up next.";
     }
     check();
   }
@@ -67,9 +71,10 @@ function check() {
                   }
   }
 
+
 $('#clear').on('click', function() {
   for (var i = 1; i < 10; i++) {
-    document.getElementById(i).innerHTML = "";
+    document.getElementById("gameboard").innerHTML = "";
   }
 });
 
