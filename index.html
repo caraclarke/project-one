@@ -20,25 +20,31 @@
                   <div class="gameboard">
                     <table border='0' class="table">
                       <tr>
-                        <td class="cell" id= "1" onclick='move("1");'></td>
-                        <td class="cell" id= "2" onclick='move("2");'></td>
-                        <td class="cell" id= "3" onclick='move("3");'></td>
+                        <td class="cell" value = "1" id= "1" onclick='move("1");'></td>
+                        <td class="cell" value = "2" id= "2" onclick='move("2");'></td>
+                        <td class="cell" value = "3" id= "3" onclick='move("3");'></td>
                       </tr>
                       <tr>
-                        <td class="cell" id= "4" onclick='move("4");'></td>
-                        <td class="cell" id= "5" onclick='move("5");'></td>
-                        <td class="cell" id= "6" onclick='move("6");'></td>
+                        <td class="cell" value = "4" id= "4" onclick='move("4");'></td>
+                        <td class="cell" value = "5" id= "5" onclick='move("5");'></td>
+                        <td class="cell" value = "6" id= "6" onclick='move("6");'></td>
                       </tr>
                       <tr>
-                        <td class="cell" id= "7" onclick='move("7");'></td>
-                        <td class="cell" id= "8" onclick='move("8");'></td>
-                        <td class="cell" id= "9" onclick='move("9");'></td>
+                        <td class="cell" value = "7" id= "7" onclick='move("7");'></td>
+                        <td class="cell" value = "8" id= "8" onclick='move("8");'></td>
+                        <td class="cell" value = "9" id= "9" onclick='move("9");'></td>
                       </tr>
                     </table><br>
 
                   </div><br>
 
                   <button type="button" id="clear">Clear</button>
+
+                  <div id="playerOne">
+                  </div>
+
+                  <div id="playerTwo">
+                  </div>
 
                 </div> <!-- end wrap -->
 
@@ -65,13 +71,8 @@
           </div> <!-- end leftsidebar  -->
 
         <aside id="eventOutput">
-            <h1>User information</h1>
 
-            <div id="playerOne">
-            </div>
-
-            <div id="playerTwo">
-            </div>
+            <h1>User output information</h1>
 
         </aside>
 

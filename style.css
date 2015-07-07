@@ -83,6 +83,32 @@ header h1 {
   height: 100px
 }
 
+/*player info*/
+
+#playerOne {
+  height: 250px;
+  width: 250px;
+  position: relative;
+    margin-right: 5px;
+    margin-top: 15%;
+    margin-left: 20px;
+    float: left;
+  background-color: white;
+  color: black;
+}
+
+#playerTwo {
+  height: 250px;
+  width: 250px;
+  position: relative;
+    margin-left: 5px;
+    margin-top: 15%;
+    margin-right: 20px;
+    float: right;
+  background-color: white;
+  color: black;
+}
+
 /*right sidebar*/
 
 aside {
@@ -99,25 +125,6 @@ aside h1 {
   text-align: center;
 }
 
-#playerOne {
-  height: 250px;
-  width: 250px;
-  position: relative;
-    margin: 0 auto;
-    margin-top: 45%;
-  background-color: white;
-  color: black;
-}
-
-#playerTwo {
-  height: 250px;
-  width: 250px;
-  position: relative;
-    margin: 0 auto;
-    margin-top: 30px;
-  background-color: white;
-  color: black;
-}
 
 /*left sidebar and contents*/
 
