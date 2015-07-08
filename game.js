@@ -1,16 +1,35 @@
 'use strict';
 
 $(document).ready( function () {
+  var turn = "X";
   getPlayers();
 
   $('#clear').on('click', function() {
       $("td.cell").html("");
-      console.log("Something happened clear.")
   }); // end clear
 
-}); // end document.ready
+  $("td.cell").on("click", function(cell){
+  var cellElement = $("td.cell").html();
+  var count = 0;
 
-var turn = "X";
+  if (cellElement != "X" && cellElement != "O") {
+    // cellElement = turn;
+
+    if (count % 2 !== 0) {
+      // turn = "X";
+      $(this).html("X");
+      ++count;
+      // addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
+    } else {
+      $(this).html("O");
+      ++count;
+      // addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
+    }
+    check();
+  }
+}); // end td
+
+}); // end document.ready
 
 function getPlayers () {
   var playerOne = prompt("What is your name?");
@@ -21,25 +40,6 @@ function getPlayers () {
     $("#playerTwo").html("<p>" + playerTwo + " - You are Player O!</p>");
   }
 }
-
-$("td.cell").on("click", function(cell){
-  var cellElement = $("td.cell").html();
-
-  if (cellElement != "X" && cellElement != "O") {
-    cellElement = turn;
-
-    if (turn === "X") {
-      turn = "O";
-      $(this).html("X");
-      // addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
-    } else {
-      turn = "X";
-      $(this).html("O");
-      // addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
-    }
-    check();
-  }
-}); // end td
 
 function check() {
   var cell1 = $("#1").html();
