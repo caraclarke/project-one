@@ -159,19 +159,18 @@ function check() {
 } // end check
 
 function addEventOutputTracking (eventName, outputText, extraText) {
-  var node;
-  var pChildNode = document.createElement("p");
+  var node = $("#eventOutput");
+  var pChildNode = $("<p>");
 
-  node = document.getElementById("eventOutput");
-  node.appendChild(pChildNode);
-  pChildNode.appendChild(document.createTextNode("User Event: " + eventName + outputText + extraText));
+  pChildNode.html("User Event: " + eventName + outputText + extraText);
+  node.append(pChildNode);
 } // end AEOT
 
 function gameHistory (winner, outputText, extraText) {
   var node = $("#playerHistory");
-  var pChildNode = node.append("p");
+  var pChildNode = $("<p>");
 
-  node.appendTo(pChildNode);
-  pChildNode.append(node.html(winner + outputText));
+  pChildNode.html(winner + outputText);
+  node.append(pChildNode);
 } // end GH
 
