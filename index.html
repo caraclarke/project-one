@@ -1,58 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Tic Tac Code</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
+<head>
+  <title>Tic Tac Code</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="index.js" defer charset="utf-8"></script>
+</head>
+<body>
 
-      <header>
-        <h1>Sorry in advance</h1>
-      </header>
+  <header>
+    <h1>Sorry in advance</h1>
+  </header>
 
-      <div id="mainBody">
+  <div id="mainBody">
 
-          <div class="games">
+    <div class="games">
 
-            <div class="gameOne">
-              <p>Game one</p>
-            </div>
+      <div class="wrapper">
+        <h1>Tic Tac Toe</h1>
+        <div class="gameboard">
+          <table class="table">
+            <tr>
+              <td class="cell" id= "1"></td>
+              <td class="cell" id= "2"></td>
+              <td class="cell" id= "3"></td>
+            </tr>
+            <tr>
+              <td class="cell" id= "4"></td>
+              <td class="cell" id= "5"></td>
+              <td class="cell" id= "6"></td>
+            </tr>
+            <tr>
+              <td class="cell" id= "7"></td>
+              <td class="cell" id= "8"></td>
+              <td class="cell" id= "9"></td>
+            </tr>
+          </table><br>
 
-            <div class="gameTwo">
-              <p>Game Two</p>
-            </div>
+        </div><br>
 
-          </div> <!-- end games -->
+        <button type="button" id="clear">Clear</button>
 
-          <div class="leftsidebar">
+        <div id="playerOne">
+        </div>
 
-            <div class="randomPlay">
-              <p>Circle cicle fijdfla;kdj</p>
-            </div>
+        <div id="playerTwo">
+        </div>
 
-            <div class="playerHistory">
-              <p>Sample placement text</p>
-            </div>
+      </div> <!-- end wrap -->
 
-            <div class="newGame">
-              <p>new Game</p>
-            </div>
+    </div> <!-- end games -->
 
-          </div> <!-- end leftsidebar  -->
+    <div class="leftsidebar">
 
-        <aside>
-            <p>Aside text</p>
-        </aside>
+      <div id="randomPlay">
+        <div class="randomPlay-circle">
+          <p>Random Move</p>
+        </div>
+      </div>
 
-        <footer>
-        &copy; 2015, Cara Clarke<br>
-        WDI Project One<br>
-        I hope you enjoyed my ridiculous game
-      </footer>
+      <div id="playerHistory">
+        <h3>Winner History</h3>
+      </div>
 
-      </div> <!-- end main body -->
+      <div id="newGame">
+        <div class="newGame-circle">
+          <p>New Game</p>
+        </div>
+      </div>
 
-    <script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
-    </body>
+    </div> <!-- end leftsidebar  -->
+
+    <aside id="eventOutput">
+      <h1>User output information</h1>
+    </aside>
+
+  <footer>
+      &copy; 2015, Cara Clarke<br>
+      WDI Project One<br>
+      I hope you enjoyed my ridiculous game
+  </footer>
+
+  </div> <!-- end main body -->
+
+  <script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
 </html>
