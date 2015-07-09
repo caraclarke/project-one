@@ -12,7 +12,7 @@ $(document).ready( function () {
   $("td.cell").on("click", function(cell){
     var cellElement = $("#cell");
 
-    if (cellElement.html() === "".value){
+    if (cellElement.html() != "X" && cellElement.html() != "O") {
       cellElement.html(turn);
       if (turn == "X"){
         $(this).html("X");
@@ -153,3 +153,4 @@ function gameHistory (winner, outputText, extraText) {
   node.appendChild(pChildNode);
   pChildNode.appendChild(document.createTextNode(winner + outputText));
 } // end GH
+
