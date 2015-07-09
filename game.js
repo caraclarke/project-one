@@ -9,28 +9,11 @@ $(document).ready( function () {
     $("#eventOutput").html("<h1>User Output Information</h1>");
   }); // end clear
 
-//   $("td.cell").on("click", function(cell){
-//     var cellElement = $("#cell");
-
-//     if (cellElement.html() != "X" && cellElement.html() != "O") {
-//       cellElement.html(turn);
-//       if (turn == "X"){
-//         $(this).html("X");
-//         turn = "O";
-//         addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
-//       } else{
-//         $(this).html("O");
-//         turn = "X";
-//         addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
-//       }
-//       check();
-//     }
-
-// }); end td
-
  // left side bar buttons
 
  $('#randomPlay').on('click', function() {
+  alert("Wow you must have a sense of adventure. This button makes a random move but it may not necessarily be a move for you. Hit OK to continue ya daredevil.");
+
   var playRandom = Math.random();
   var cellElement = $("#cell");
 
@@ -62,27 +45,30 @@ $(document).ready( function () {
 }); // end randomPlay
 
  $('#newGame').on('click', function() {
+  $("#playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.length === 3) {
+    alert("Well aren't we popular.");
     getPlayers();
   } else if (newUsers.length === 2) {
+    alert("Must not have a lot of friends.");
     $("td.cell").html("");
     $("#eventOutput").html("<h1>User Output Information</h1>");
   } else {
-    alert("Your input wasn't recognized dipshit. It's a simple yes or no question.");
+    alert("Your input wasn't recognized dipshit. It's a simple yes or no question dipshit.");
   }
 }); // end newGame
 
 }); // end document.ready
 
 function getPlayers () {
-  var playerOne = prompt("What is your name?");
-  var playerTwo = prompt("What is your name?");
+  var playerOne = prompt("Welcome Player One! Enter your name below.");
+  var playerTwo = prompt("Welcome Player Two! Enter your name below.");
 
   if (playerOne && playerTwo) {
-    $("#playerOne").html("<p>" + playerOne + " - You are Player X! Your turn is first.</p>");
-    $("#playerTwo").html("<p>" + playerTwo + " - You are Player O!</p>");
+    $("#playerOne").html("<p>" + playerOne + " - You are X! Your turn is first.</p>");
+    $("#playerTwo").html("<p>" + playerTwo + " - You are O!</p>");
   }
 }
 
@@ -96,13 +82,16 @@ function gameClick () {
       if (turn == "X"){
         $(this).html("X");
         turn = "O";
-        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
+        alert("Wow cool move.");
+        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
       } else{
         $(this).html("O");
         turn = "X";
-        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
+        alert("Wow cool move.");
+        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
       }
       check();
+      alert("Did you win yet?");
     }
 
   }); // end td
@@ -121,39 +110,39 @@ function check() {
 
   if (cell1 == cell2 && cell2 == cell3 && cell1 == cell3 && cell1 !== "") {
     alert(cell1 + " Wins!");
-    addEventOutputTracking(cell1, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell1, " wins this round!", " Fuck yeah " + cell1 + ".</strong>");
     gameHistory(cell1, " won. Suck it.");
   } else if (cell4 == cell5 && cell5 == cell6 && cell4 == cell6 && cell4 !== "") {
     alert(cell4 + " Wins!");
-    addEventOutputTracking(cell4, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell4, " wins this round!", " Fuck yeah " + cell4 + ".</strong>");
     gameHistory(cell4, " won. Suck it.");
   } else if (cell7 == cell8 && cell8 == cell9 && cell7 == cell9 && cell7 !== "") {
     alert(cell7 + " Wins!");
-    addEventOutputTracking(cell7, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell7, " wins this round!", " Fuck yeah " + cell7 + ".</strong>");
     gameHistory(cell7, " won. Suck it.");
   } else if (cell1 == cell4 && cell4 == cell7 && cell1 == cell7 && cell1 !== "") {
     alert(cell1 + " Wins!");
-    addEventOutputTracking(cell1, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell1, " wins this round!", " Fuck yeah " + cell1 + ".</strong>");
     gameHistory(cell1, " won. Suck it.");
   } else if (cell2 == cell5 && cell5 == cell8 && cell2 == cell8 && cell2 !== "") {
     alert(cell2 + " Wins!");
-    addEventOutputTracking(cell2, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell2, " wins this round!", " Fuck yeah " + cell2 + ".</strong>");
     gameHistory(cell2, " won. Suck it.");
   } else if (cell3 == cell6 && cell6 == cell9 && cell3 == cell9 && cell3 !== "") {
     alert(cell3 + " Wins!");
-    addEventOutputTracking(cell3, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell3, " wins this round!", " Fuck yeah " + cell3 + ".</strong>");
     gameHistory(cell3, " won. Suck it.");
   } else if (cell1 == cell5 && cell5 == cell9 && cell1 == cell9 && cell1 !== "") {
     alert(cell1 + " Wins!");
-    addEventOutputTracking(cell1, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell1, " wins this round!", " Fuck yeah " + cell1 + ".</strong>");
     gameHistory(cell1, " won. Suck it.");
   } else if (cell3 == cell5 && cell5 == cell7 && cell3 == cell7 && cell3 !== "") {
     alert(cell3 + " Wins!");
-    addEventOutputTracking(cell3, " wins this round!", " Hooray.");
+    addEventOutputTracking("<strong>" + cell3, " wins this round!", " Fuck yeah " + cell3 + ".</strong>");
     gameHistory(cell3, " won. Suck it.");
   } else if (cell1 !== "" && cell2 !== "" && cell3 !== "" && cell4 !== "" && cell5 !== "" && cell6 !== "" && cell7 !== "" && cell8 !== "" && cell9 !== "") {
     alert("Tie!");
-    addEventOutputTracking("Nobody wins!", " It's a cats game, ", " try harder next time.");
+    addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
     gameHistory("Nobody won the game. ", "Get it the fuck together.");
   }
 } // end check
@@ -162,7 +151,7 @@ function addEventOutputTracking (eventName, outputText, extraText) {
   var node = $("#eventOutput");
   var pChildNode = $("<p>");
 
-  pChildNode.html("User Event: " + eventName + outputText + extraText);
+  pChildNode.html(eventName + outputText + extraText);
   node.append(pChildNode);
 } // end AEOT
 
