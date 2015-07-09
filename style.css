@@ -1,6 +1,6 @@
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #F2FFE3;
+  color: #000;
   font-family: arial, helvetica, sans-serif;
   font-size: small;
   margin: 0px;
@@ -9,15 +9,11 @@ body {
 header {
   height: 108px;
   width: 100%;
-  background-color: #fff;
-  color: #000;
+  background-color: #1595A3;
+  color: #F2FFE3;
   position: fixed;
     margin: 0px 1px 0px 0px;
   z-index: 20;
-}
-
-h3 {
-  color: white;
 }
 
 header h1 {
@@ -40,7 +36,7 @@ header h1 {
 .games {
   height: 75%;
   width: 46%;
-  background-color: red;
+  background-color: #225378;
   position: relative;
      margin: 15% 2% 2% 2%;
   display: inline-block;
@@ -49,20 +45,23 @@ header h1 {
 .wrapper {
   width: 100%;
   margin: 0 auto;
-  text-align: center;
 }
 
+.wrapper h1 {
+  text-align: center;
+  color: #EB7F00;
+}
 .gameboard {
   width: 330px;
   height: 310px;
-  border: 1px solid #ccc;
+  border: 1px solid #EB7F00;
   z-index: 1;
   margin: 0 auto;
 }
 
 .tile {
   display: inline-flex;
-  border: 1px solid #333;
+  border: 1px solid #225378;
   width: 100px;
   height: 100px;
 }
@@ -83,7 +82,7 @@ header h1 {
 
 .table td {
   padding: 0px;
-  border: 1px solid #ccc;
+  border: 1px solid #EB7F00;
   width: 100px;
   height: 100px
 }
@@ -117,7 +116,7 @@ header h1 {
 /*right sidebar*/
 
 aside {
-  background-color: gray;
+  background-color: #ACF0F2;
   width: 21%;
   height: 75%;
   font-size: 105;
@@ -128,13 +127,14 @@ aside {
 
 aside h1 {
   text-align: center;
+  color: #EB7F00;
 }
 
 
 /*left sidebar and contents*/
 
 .leftsidebar {
-  background-color: white;
+  background-color: #ACF0F2;
   color: black;
   float: left;
   width: 21%;
@@ -193,6 +193,10 @@ aside h1 {
   color: white;
 }
 
+h3 {
+  color: white;
+}
+
 #newGame {
     width: 150px;
     margin: 0 auto;
@@ -235,12 +239,15 @@ aside h1 {
 footer {
   height: 25px;
   width: 100%;
+  padding-bottom: 5px;
+  color: #1595A3 ;
   font-size: 90%;
   font-family: arial, helvetica, sans-serif;
-  color: #fff;
-  float: bottom;
+  font-weight: medium;
   text-align: center;
+  float: bottom;
   position: absolute;
     padding: 15px;
+    padding-bottom: 30px;
     margin: 3% 0% 0% 0%;
 }
