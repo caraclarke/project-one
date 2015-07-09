@@ -3,6 +3,7 @@ body {
   color: #000;
   font-family: arial, helvetica, sans-serif;
   font-size: small;
+  text-align: center;
   margin: 0px;
 }
 
@@ -35,10 +36,10 @@ header h1 {
 
 .games {
   height: 75%;
-  width: 46%;
+  width: 50%;
   background-color: #225378;
   position: relative;
-     margin: 15% 2% 2% 2%;
+     margin: 15% 0% 2% 0%;
   display: inline-block;
 }
 
@@ -117,12 +118,12 @@ header h1 {
 
 aside {
   background-color: #ACF0F2;
-  width: 21%;
+  width: 25%;
   height: 75%;
   font-size: 105;
   float: right;
   position: relative;
-    margin: 15% 2% 2% 2%;
+    margin: 15% 0% 2% 0%;
 }
 
 aside h1 {
@@ -135,18 +136,23 @@ aside h1 {
 
 .leftsidebar {
   background-color: #ACF0F2;
-  color: black;
   float: left;
-  width: 21%;
+  width: 25%;
   height: 75%;
   position: relative;
-     margin: 15% 2% 2% 2%;
+     margin: 15% 0% 2% 0%;
 }
 
+/*.leftsidebar p {
+  text-align: left;
+  padding: 2px;
+  color
+}*/
+
 #randomPlay {
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
-    margin-top: 40%;
+    margin-top: 25%%;
     margin-bottom: 10%;
 }
 
@@ -156,7 +162,6 @@ aside h1 {
     padding-bottom: 100%;
     border-radius: 50%;
     border:10px solid #cfdcec;
-    margin-top: 10px;
     overflow:hidden;
     background: #4679BD;
     box-shadow: 0 0 3px gray;
@@ -183,8 +188,8 @@ aside h1 {
 }
 
 #playerHistory {
-  height: 175px;
-  width: 175px;
+  height: 250px;
+  width: 250px;
   background-color: #000;
   position: relative;
     margin: 0 auto;
@@ -195,10 +200,12 @@ aside h1 {
 
 h3 {
   color: white;
+  text-align: center;
+  padding-top: 15px;
 }
 
 #newGame {
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
 }
 
