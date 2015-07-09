@@ -49,12 +49,14 @@ $(document).ready( function () {
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.length === 3) {
+    alert("Well aren't we popular.");
     getPlayers();
   } else if (newUsers.length === 2) {
+    alert("Must not have a lot of friends.");
     $("td.cell").html("");
     $("#eventOutput").html("<h1>User Output Information</h1>");
   } else {
-    alert("Your input wasn't recognized dipshit. It's a simple yes or no question.");
+    alert("Your input wasn't recognized dipshit. It's a simple yes or no question dipshit.");
   }
 }); // end newGame
 
@@ -80,13 +82,16 @@ function gameClick () {
       if (turn == "X"){
         $(this).html("X");
         turn = "O";
+        alert("Wow cool move.");
         addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
       } else{
         $(this).html("O");
         turn = "X";
+        alert("Wow cool move.");
         addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
       }
       check();
+      alert("Did you win yet?");
     }
 
   }); // end td
