@@ -178,7 +178,7 @@ aside h1 {
     text-decoration:none;
 }
 
-.playerHistory {
+#playerHistory {
   height: 175px;
   width: 175px;
   background-color: #000;
