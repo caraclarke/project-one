@@ -57,10 +57,17 @@ $('#randomPlay').on('click', function() {
 }); // end randomPlay
 
 $('#newGame').on('click', function() {
-    $("td.cell").html("");
-    $("#eventOutput").html("<h1>User Output Information</h1>");
-    // getPlayers();
-  }); // end newGame
+  var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
+
+  if (newUsers.length === 3) {
+    getPlayers();
+    } else if (newUsers.length === 2) {
+      $("td.cell").html("");
+      $("#eventOutput").html("<h1>User Output Information</h1>");
+    } else {
+      alert("Your input wasn't recognized dipshit. It's a simple yes or no question.");
+    }
+}); // end newGame
 
 }); // end document.ready
 
@@ -123,7 +130,7 @@ function addEventOutputTracking (eventName, outputText, extraText) {
   node = document.getElementById("eventOutput");
   node.appendChild(pChildNode);
   pChildNode.appendChild(document.createTextNode("User Event: " + eventName + outputText + extraText));
-}
+} // end AEOT
 
 function gameHistory (eventName, player, outputText) {
   var node;
@@ -132,4 +139,4 @@ function gameHistory (eventName, player, outputText) {
   node = document.getElementById("playerHistory");
   node.appendChild(pChildNode);
   pChildNode.appendChild(document.createTextNode("Winner " + player + outputText));
-}
+} // end GH
