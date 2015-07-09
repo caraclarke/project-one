@@ -16,6 +16,10 @@ header {
   z-index: 20;
 }
 
+h3 {
+  color: white;
+}
+
 header h1 {
   text-align: center;
   font-size: 65px;
@@ -186,6 +190,10 @@ aside h1 {
     margin: 0 auto;
     z-index: 3;
     margin-bottom: 10%;
+}
+
+#playerHistory p {
+  color: white;
 }
 
 #newGame {
