@@ -73,7 +73,8 @@ function getPlayers () {
 }
 
 function gameClick () {
-   var turn = "X";
+  var turn;
+
   $("td.cell").on("click", function(cell){
     var cellElement = $("#cell");
 

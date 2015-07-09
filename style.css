@@ -1,7 +1,7 @@
 body {
   background-color: #F2FFE3;
   color: #000;
-  font-family: arial, helvetica, sans-serif;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
   margin: 0px;
@@ -18,6 +18,7 @@ header {
 }
 
 header h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
   text-align: center;
   font-size: 65px;
   margin: 0 auto;
@@ -49,6 +50,8 @@ header h1 {
 }
 
 .wrapper h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
   text-align: center;
   color: #EB7F00;
 }
@@ -127,6 +130,8 @@ aside {
 }
 
 aside h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
   text-align: center;
   color: #EB7F00;
 }
@@ -147,10 +152,16 @@ aside h1 {
   color: #225378;
 }
 
+.leftsidebar h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
+  color: #EB7F00;
+}
+
 #randomPlay {
     width: 200px;
     margin: 0 auto;
-    margin-top: 25%%;
+    margin-top: 10%%;
     margin-bottom: 10%;
 }
 
@@ -246,7 +257,6 @@ footer {
   padding-bottom: 5px;
   color: #1595A3 ;
   font-size: 90%;
-  font-family: arial, helvetica, sans-serif;
   font-weight: medium;
   text-align: center;
   float: bottom;
