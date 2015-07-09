@@ -12,6 +12,8 @@ $(document).ready( function () {
  // left side bar buttons
 
  $('#randomPlay').on('click', function() {
+  alert("Wow you must have a sense of adventure. This button makes a random move but it may not necessarily be a move for you. Hit OK to continue ya daredevil.");
+
   var playRandom = Math.random();
   var cellElement = $("#cell");
 
@@ -43,6 +45,7 @@ $(document).ready( function () {
 }); // end randomPlay
 
  $('#newGame').on('click', function() {
+  $("#playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.length === 3) {
@@ -134,7 +137,7 @@ function check() {
     gameHistory(cell3, " won. Suck it.");
   } else if (cell1 !== "" && cell2 !== "" && cell3 !== "" && cell4 !== "" && cell5 !== "" && cell6 !== "" && cell7 !== "" && cell8 !== "" && cell9 !== "") {
     alert("Tie!");
-    addEventOutputTracking("<strong>Nobody wins!", " It's a cats game, ", " try harder next time.</strong>");
+    addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
     gameHistory("Nobody won the game. ", "Get it the fuck together.");
   }
 } // end check
