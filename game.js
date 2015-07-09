@@ -1,32 +1,32 @@
 'use strict';
 
 $(document).ready( function () {
-  var turn = "X";
   getPlayers();
+  gameClick();
 
   $('#clear').on('click', function() {
     $("td.cell").html("");
     $("#eventOutput").html("<h1>User Output Information</h1>");
   }); // end clear
 
-  $("td.cell").on("click", function(cell){
-    var cellElement = $("#cell");
+//   $("td.cell").on("click", function(cell){
+//     var cellElement = $("#cell");
 
-    if (cellElement.html() != "X" && cellElement.html() != "O") {
-      cellElement.html(turn);
-      if (turn == "X"){
-        $(this).html("X");
-        turn = "O";
-        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
-      } else{
-        $(this).html("O");
-        turn = "X";
-        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
-      }
-      check();
-    }
+//     if (cellElement.html() != "X" && cellElement.html() != "O") {
+//       cellElement.html(turn);
+//       if (turn == "X"){
+//         $(this).html("X");
+//         turn = "O";
+//         addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
+//       } else{
+//         $(this).html("O");
+//         turn = "X";
+//         addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
+//       }
+//       check();
+//     }
 
-}); // end td
+// }); end td
 
  // left side bar buttons
 
@@ -34,7 +34,7 @@ $(document).ready( function () {
   var playRandom = Math.random();
   var cellElement = $("#cell");
 
-  if (cellElement.html() != "X" && cellElement.html() != "O") {
+  if (cellElement.html() !== "X" && cellElement.html() !== "O") {
     if (playRandom < 0.11) {
       $("#4").html("O");
     } else if (0.12 < playRandom < 0.2) {
@@ -84,6 +84,28 @@ function getPlayers () {
     $("#playerOne").html("<p>" + playerOne + " - You are Player X! Your turn is first.</p>");
     $("#playerTwo").html("<p>" + playerTwo + " - You are Player O!</p>");
   }
+}
+
+function gameClick () {
+   var turn = "X";
+  $("td.cell").on("click", function(cell){
+    var cellElement = $("#cell");
+
+    if (cellElement.html() != "X" && cellElement.html() != "O") {
+      cellElement.html(turn);
+      if (turn == "X"){
+        $(this).html("X");
+        turn = "O";
+        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + " X is up next.");
+      } else{
+        $(this).html("O");
+        turn = "X";
+        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + " O is up next.");
+      }
+      check();
+    }
+
+  }); // end td
 }
 
 function check() {
@@ -146,11 +168,10 @@ function addEventOutputTracking (eventName, outputText, extraText) {
 } // end AEOT
 
 function gameHistory (winner, outputText, extraText) {
-  var node;
-  var pChildNode = document.createElement("p");
+  var node = $("#playerHistory");
+  var pChildNode = node.append("p");
 
-  node = document.getElementById("playerHistory");
-  node.appendChild(pChildNode);
-  pChildNode.appendChild(document.createTextNode(winner + outputText));
+  node.appendTo(pChildNode);
+  pChildNode.append(node.html(winner + outputText));
 } // end GH
 
