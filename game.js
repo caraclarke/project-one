@@ -73,7 +73,7 @@ setTimeout(function(){
       alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
     }
   });
-}, 11500);
+}, 11000);
 
 }); // end document.ready
 
@@ -82,13 +82,13 @@ function getPlayers () {
   var playerTwo = prompt("Welcome Player Two! Enter your name below.");
 
   if (playerOne && playerTwo) {
-    $("#playerOne").html("<p>" + playerOne + " - You are O! Your turn is first.</p>");
-    $("#playerTwo").html("<p>" + playerTwo + " - You are X!</p>");
+    $("#playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
+    $("#playerTwo").html("<h2>" + playerTwo + "</h2><p>You are O!</p>");
   }
 }
 
 function gameClick () {
-  var turn;
+  var turn = "X";
 
   $("td.cell").on("click", function(cell){
     var cellElement = $("#cell");
