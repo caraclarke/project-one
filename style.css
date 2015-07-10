@@ -188,6 +188,20 @@ header h1 {
   animation-iteration-count: infinite;
 }
 
+#playerOne h2 {
+  font-family: font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #EB7F00;
+}
+
+#playerTwo h2 {
+  font-family: font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #EB7F00;
+}
+
 /*right sidebar*/
 
 
