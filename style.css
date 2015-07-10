@@ -5,11 +5,22 @@ body {
   font-size: small;
   text-align: center;
   margin: 0px;
+  animation-name: flashme;
+  animation-duration: 1s;
+  animation-delay: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flashme {
+  from {background-color:#F2FFE3;}
+  to {background-color: #820AE8;}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-360deg);}
 }
 
 @keyframes moveit {
   from {top: 0px; left: 0px;}
-  to {top: 200px; left: 0px;}
+  to {top: 650px; left: 0px;}
 }
 
 header {
@@ -21,7 +32,7 @@ header {
     margin: 0px 1px 0px 0px;
   z-index: 20;
   animation-name: moveit;
-  animation-duration: 0.5s;
+  animation-duration: 2s;
   animation-delay: 11s;
   animation-iteration-count: infinite;
 }
@@ -38,7 +49,7 @@ header h1 {
   margin: 0 auto;
   animation-name: highlight;
   animation-duration: 0.5s;
-  animation-delay: 11s;
+  animation-delay: 12s;
   animation-iteration-count: infinite;
 }
 
@@ -49,6 +60,10 @@ header h1 {
   position: absolute;
   margin-right: auto;
   margin-left: 25px;
+  animation-name: flashme;
+  animation-duration: 1s;
+  animation-delay: 15s;
+  animation-iteration-count: infinite;
 }
 
 /*gameboards*/
@@ -175,6 +190,12 @@ header h1 {
 
 /*right sidebar*/
 
+
+@keyframes colorful {
+  from {background-color: #ACF0F2;}
+  to {background-color: #FFFF00;}
+}
+
 aside {
   background-color: #ACF0F2;
   width: 25%;
@@ -183,6 +204,10 @@ aside {
   float: right;
   position: relative;
     margin: 15% 0% 2% 0%;
+  animation-name: colorful;
+  animation-duration: 1s;
+  animation-delay: 13s;
+  animation-iteration-count: infinite;
 }
 
 aside h1 {
@@ -202,6 +227,10 @@ aside h1 {
   height: 75%;
   position: relative;
      margin: 15% 0% 2% 0%;
+  animation-name: colorful;
+  animation-duration: 1s;
+  animation-delay: 13s;
+  animation-iteration-count: infinite;
 }
 
 .leftsidebar p {
