@@ -6,7 +6,7 @@ $(document).ready( function () {
 
   $('#clear').on('click', function() {
     $("td.cell").html("");
-    $("#eventOutput").html("<h1>User Output Information</h1>");
+    $("#eventOutput").html("<h1>User Output</h1>");
   }); // end clear
 
  // left side bar buttons
@@ -54,24 +54,26 @@ $('#newGame').on('click', function() {
   } else if (newUsers.length === 2) {
     alert("Must not have a lot of friends.");
     $("td.cell").html("");
-    $("#eventOutput").html("<h1>User Output Information</h1>");
+    $("#eventOutput").html("<h1>User Output</h1>");
   } else {
     alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
   }
 }); // end newGame
 
-$("body").mousedown(function(){
-  console.log("I've been hit!")
-  var stop = prompt("For $8,000 a month I will stop. Yes or no?");
+setTimeout(function(){
+  $("body").on("mousedown", function() {
+    var stop = prompt("For $8,000 a month I will stop. Yes or no?");
 
-  if (stop.length === 3) {
-    stopAnimation();
-  } else if (stop.length === 2) {
-    stopAnimation();
-  } else {
-    alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
-  }
-});
+    if (stop.length === 3) {
+      stopAnimation();
+      $("body").off("mousedown");
+    } else if (stop.length === 2) {
+      alert("Have it your way you sicko.");
+    } else {
+      alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+    }
+  });
+}, 11500);
 
 }); // end document.ready
 
@@ -80,8 +82,8 @@ function getPlayers () {
   var playerTwo = prompt("Welcome Player Two! Enter your name below.");
 
   if (playerOne && playerTwo) {
-    $("#playerOne").html("<p>" + playerOne + " - You are X! Your turn is first.</p>");
-    $("#playerTwo").html("<p>" + playerTwo + " - You are O!</p>");
+    $("#playerOne").html("<p>" + playerOne + " - You are O! Your turn is first.</p>");
+    $("#playerTwo").html("<p>" + playerTwo + " - You are X!</p>");
   }
 }
 
@@ -97,12 +99,12 @@ function gameClick () {
         $(this).html("X");
         turn = "O";
         alert("Wow cool move.");
-        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
+        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
       } else{
         $(this).html("O");
         turn = "X";
         alert("Wow cool move.");
-        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
+        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
       }
       check();
       alert("Did you win yet?");
