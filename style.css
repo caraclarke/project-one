@@ -7,6 +7,11 @@ body {
   margin: 0px;
 }
 
+@keyframes moveit {
+  from {top: 0px; left: 0px;}
+  to {top: 200px; left: 0px;}
+}
+
 header {
   height: 108px;
   width: 100%;
@@ -15,6 +20,15 @@ header {
   position: fixed;
     margin: 0px 1px 0px 0px;
   z-index: 20;
+  animation-name: moveit;
+  animation-duration: 0.5s;
+  animation-delay: 11s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes highlight {
+  from {color: #F2FFE3;}
+  to {color: yellow;}
 }
 
 header h1 {
@@ -22,6 +36,10 @@ header h1 {
   text-align: center;
   font-size: 65px;
   margin: 0 auto;
+  animation-name: highlight;
+  animation-duration: 0.5s;
+  animation-delay: 11s;
+  animation-iteration-count: infinite;
 }
 
 #mainBody {
@@ -35,6 +53,11 @@ header h1 {
 
 /*gameboards*/
 
+@keyframes bodycolor {
+  from {background-color: #F2FFE3;}
+  to {background-color: #F00600;}
+}
+
 .games {
   height: 75%;
   width: 50%;
@@ -42,6 +65,10 @@ header h1 {
   position: relative;
      margin: 15% 0% 2% 0%;
   display: inline-block;
+  animation-name: bodycolor;
+  animation-duration: 1s;
+  animation-delay: 11s;
+  animation-iteration-count: infinite;
 }
 
 .wrapper {
@@ -55,12 +82,26 @@ header h1 {
   text-align: center;
   color: #EB7F00;
 }
+
+@keyframes grow {
+  from {height: 310px;}
+  from  {width: 330px;}
+  to {height: 400px;}
+  to {width: 420px;}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
 .gameboard {
   width: 330px;
   height: 310px;
   border: 1px solid #EB7F00;
   z-index: 1;
   margin: 0 auto;
+  animation-name: grow;
+  animation-duration: 1s;
+  animation-delay: 10s;
+  animation-iteration-count: infinite;
 }
 
 .tile {
@@ -92,6 +133,13 @@ header h1 {
 }
 
 /*player info*/
+@keyframes player {
+  0% {background-color: #F2FFE3;}
+  25% {background-color: #E37E05;}
+  50% {background-color: #820AE8;}
+  75% {background-color: #1595A3;}
+  100% {background-color: #EB7F00;}
+}
 
 #playerOne {
   height: 250px;
@@ -103,6 +151,10 @@ header h1 {
     float: left;
   background-color: #F2FFE3;
   color: #225378;
+  animation-name: player;
+  animation-duration: 10s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
 }
 
 #playerTwo {
@@ -115,6 +167,10 @@ header h1 {
     float: right;
   background-color: #F2FFE3;
   color: #225378;
+  animation-name: player;
+  animation-duration: 5s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
 }
 
 /*right sidebar*/

@@ -76,6 +76,7 @@ function gameClick () {
   var turn;
 
   $("td.cell").on("click", function(cell){
+    setTimeout(alert("Sorry not sorry."), 8000);
     var cellElement = $("#cell");
 
     if (cellElement.html() != "X" && cellElement.html() != "O") {
