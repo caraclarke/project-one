@@ -1,6 +1,9 @@
 # project-one
 GA WDI Project One - Tic Tac Toe
 
+
+Link to active game: http://caraclarke.github.io/project-one/
+
 My goal in creating this game was to make a beautiful but frustrating game of tic tac toe. The game is functional and fun to play, but the page is difficult to use. The point was to make the user(s) as frustrated as possible, potentially too frustrated to finish the game. A lot of the animation I used to make playing difficult I did using CSS animation commands. I had a lot of fun coming up with different animations, as well as creating a attractive, functional static page.
 
 I used HTML and jQuery to set my game and make it functional. It starts with player "O" and takes turns between the two players. It tracks the output of whose turn it is and who won. It also sends alerts to annoy the user.
