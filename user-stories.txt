@@ -1,0 +1,22 @@
+Project One User Stories
+
+I want to see when I won
+
+Cats game
+  Button change - Tie! Click to restart
+
+Player One wins
+  Button changes - New game play again
+	Option to choose new names/users
+
+Player One loses
+  Button changes - Game over, click to play again
+
+Random Move
+  I can’t decide what move I want so I let the button make a random one for me 
+
+I want the spinning to stop
+  No it’s a secret. 
+
+
+
