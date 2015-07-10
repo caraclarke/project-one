@@ -29,7 +29,7 @@ header {
   background-color: #1595A3;
   color: #F2FFE3;
   position: fixed;
-    margin: 0px 1px 0px 0px;
+  margin: 0px 1px 0px 0px;
   z-index: 20;
   animation-name: moveit;
   animation-duration: 2s;
@@ -73,12 +73,12 @@ header h1 {
   to {background-color: #F00600;}
 }
 
-.games {
+#games {
   height: 75%;
   width: 50%;
   background-color: #225378;
   position: relative;
-     margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
   display: inline-block;
   animation-name: bodycolor;
   animation-duration: 1s;
@@ -107,7 +107,7 @@ header h1 {
   to {transform: rotate(360deg);}
 }
 
-.gameboard {
+#gameboard {
   width: 330px;
   height: 310px;
   border: 1px solid #EB7F00;
@@ -132,7 +132,7 @@ header h1 {
   font-family: Arial;
   font-size: 50px;
   font-weight: 600;
-   border: 0px;
+  border: 0px;
 }
 
 .table tr {
@@ -160,10 +160,10 @@ header h1 {
   height: 250px;
   width: 250px;
   position: relative;
-    margin-right: 5px;
-    margin-top: 15%;
-    margin-left: 20px;
-    float: left;
+  margin-right: 5px;
+  margin-top: 15%;
+  margin-left: 20px;
+  float: left;
   background-color: #F2FFE3;
   color: #225378;
   animation-name: player;
@@ -176,10 +176,10 @@ header h1 {
   height: 250px;
   width: 250px;
   position: relative;
-    margin-left: 5px;
-    margin-top: 15%;
-    margin-right: 20px;
-    float: right;
+  margin-left: 5px;
+  margin-top: 15%;
+  margin-right: 20px;
+  float: right;
   background-color: #F2FFE3;
   color: #225378;
   animation-name: player;
@@ -203,7 +203,7 @@ aside {
   font-size: 105;
   float: right;
   position: relative;
-    margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
   animation-name: colorful;
   animation-duration: 1s;
   animation-delay: 13s;
@@ -220,65 +220,65 @@ aside h1 {
 
 /*left sidebar and contents*/
 
-.leftsidebar {
+#leftsidebar {
   background-color: #ACF0F2;
   float: left;
   width: 25%;
   height: 75%;
   position: relative;
-     margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
   animation-name: colorful;
   animation-duration: 1s;
   animation-delay: 13s;
   animation-iteration-count: infinite;
 }
 
-.leftsidebar p {
+#leftsidebar p {
   color: #225378;
 }
 
-.leftsidebar h1 {
+#leftsidebar h1 {
   font-family: 'Lobster', Georgia, Times, serif;
   font-size: 40px;
   color: #EB7F00;
 }
 
 #randomPlay {
-    width: 200px;
-    margin: 0 auto;
-    margin-top: 10%%;
-    margin-bottom: 10%;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10%%;
+  margin-bottom: 10%;
 }
 
 .randomPlay-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:10px solid #F2FFE3;
-    overflow:hidden;
-    background: #225378;
-    box-shadow: 0 0 3px gray;
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  border:10px solid #F2FFE3;
+  overflow:hidden;
+  background: #225378;
+  box-shadow: 0 0 3px gray;
 }
 
 .randomPlay-circle:hover {
-    background:#EB7F00;
+  background:#EB7F00;
 }
 
 #randomPlay p {
-    display:block;
-    float:left;
-    width:100%;
-    padding-top:50%;
-    padding-bottom:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:#ACF0F2;
-    font-family:Verdana;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+  padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+  text-align:center;
+  color:#ACF0F2;
+  font-family:Verdana;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 #playerHistory {
@@ -286,9 +286,9 @@ aside h1 {
   width: 250px;
   background-color: #F2FFE3;
   position: relative;
-    margin: 0 auto;
-    z-index: 3;
-    margin-bottom: 10%;
+  margin: 0 auto;
+  z-index: 3;
+  margin-bottom: 10%;
 }
 
 #playerHistory h3 {
@@ -298,40 +298,40 @@ aside h1 {
 }
 
 #newGame {
-    width: 200px;
-    margin: 0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .newGame-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:10px solid #F2FFE3;
-    margin-top: 10px;
-    overflow:hidden;
-    background: #225378;
-    box-shadow: 0 0 3px gray;
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  border:10px solid #F2FFE3;
+  margin-top: 10px;
+  overflow:hidden;
+  background: #225378;
+  box-shadow: 0 0 3px gray;
 }
 
 .newGame-circle:hover {
-    background:#EB7F00;
+  background:#EB7F00;
 }
 
 #newGame p {
-    display:block;
-    float:left;
-    width:100%;
-    padding-top:50%;
-    padding-bottom:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:#ACF0F2;
-    font-family:Verdana;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+  padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+  text-align:center;
+  color:#ACF0F2;
+  font-family:Verdana;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /*footer*/
@@ -346,7 +346,7 @@ footer {
   text-align: center;
   float: bottom;
   position: absolute;
-    padding: 15px;
-    padding-bottom: 30px;
-    margin: 3% 0% 0% 0%;
+  padding: 15px;
+  padding-bottom: 30px;
+  margin: 3% 0% 0% 0%;
 }

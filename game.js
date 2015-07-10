@@ -44,7 +44,7 @@ $(document).ready( function () {
 
 }); // end randomPlay
 
- $('#newGame').on('click', function() {
+$('#newGame').on('click', function() {
   $("#playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
@@ -56,9 +56,22 @@ $(document).ready( function () {
     $("td.cell").html("");
     $("#eventOutput").html("<h1>User Output Information</h1>");
   } else {
-    alert("Your input wasn't recognized dipshit. It's a simple yes or no question dipshit.");
+    alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
   }
 }); // end newGame
+
+$("body").mousedown(function(){
+  console.log("I've been hit!")
+  var stop = prompt("For $8,000 a month I will stop. Yes or no?");
+
+  if (stop.length === 3) {
+    stopAnimation();
+  } else if (stop.length === 2) {
+    stopAnimation();
+  } else {
+    alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+  }
+});
 
 }); // end document.ready
 
@@ -76,7 +89,6 @@ function gameClick () {
   var turn;
 
   $("td.cell").on("click", function(cell){
-    setTimeout(alert("Sorry not sorry."), 8000);
     var cellElement = $("#cell");
 
     if (cellElement.html() != "X" && cellElement.html() != "O") {
@@ -148,6 +160,10 @@ function check() {
     gameHistory("Nobody won the game. ", "Get it the fuck together.");
   }
 } // end check
+
+function stopAnimation (element) {
+  $("*").css("animation", "none");
+} // end stop animation
 
 function addEventOutputTracking (eventName, outputText, extraText) {
   var node = $("#eventOutput");
