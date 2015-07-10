@@ -6,6 +6,10 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="index.js" defer charset="utf-8"></script>
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -15,11 +19,11 @@
 
   <div id="mainBody">
 
-    <div class="games">
+    <div id="games">
 
       <div class="wrapper">
         <h1>Tic Tac Toe</h1>
-        <div class="gameboard">
+        <div id="gameboard">
           <table class="table">
             <tr>
               <td class="cell" id= "1"></td>
@@ -52,38 +56,38 @@
 
     </div> <!-- end games -->
 
-    <div class="leftsidebar">
-
-      <div id="randomPlay">
-        <div class="randomPlay-circle">
-          <p>Random Move</p>
-        </div>
+    <div id="leftsidebar">
+     <h1>Try Me</h1>
+     <div id="randomPlay">
+      <div class="randomPlay-circle">
+        <p>Random Move</p>
       </div>
+    </div>
 
-      <div id="playerHistory">
-        <h3>Winner History</h3>
+    <div id="playerHistory">
+      <h3>Winner History</h3>
+    </div>
+
+    <div id="newGame">
+      <div class="newGame-circle">
+        <p>New Game</p>
       </div>
+    </div>
 
-      <div id="newGame">
-        <div class="newGame-circle">
-          <p>New Game</p>
-        </div>
-      </div>
+  </div> <!-- end leftsidebar  -->
 
-    </div> <!-- end leftsidebar  -->
-
-    <aside id="eventOutput">
-      <h1>User output information</h1>
-    </aside>
+  <aside id="eventOutput">
+    <h1>User Output</h1>
+  </aside>
 
   <footer>
-      &copy; 2015, Cara Clarke<br>
-      WDI Project One<br>
-      I hope you enjoyed my ridiculous game
+    &copy; 2015, Cara Clarke<br>
+    WDI Project One<br>
+    I hope you enjoyed my ridiculous game
   </footer>
 
-  </div> <!-- end main body -->
+</div> <!-- end main body -->
 
-  <script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

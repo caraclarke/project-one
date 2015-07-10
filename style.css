@@ -1,10 +1,26 @@
 body {
   background-color: #F2FFE3;
   color: #000;
-  font-family: arial, helvetica, sans-serif;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
   margin: 0px;
+  animation-name: flashme;
+  animation-duration: 1s;
+  animation-delay: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flashme {
+  from {background-color:#F2FFE3;}
+  to {background-color: #820AE8;}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-360deg);}
+}
+
+@keyframes moveit {
+  from {top: 0px; left: 0px;}
+  to {top: 650px; left: 0px;}
 }
 
 header {
@@ -13,14 +29,28 @@ header {
   background-color: #1595A3;
   color: #F2FFE3;
   position: fixed;
-    margin: 0px 1px 0px 0px;
+  margin: 0px 1px 0px 0px;
   z-index: 20;
+  animation-name: moveit;
+  animation-duration: 2s;
+  animation-delay: 11s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes highlight {
+  from {color: #F2FFE3;}
+  to {color: yellow;}
 }
 
 header h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
   text-align: center;
   font-size: 65px;
   margin: 0 auto;
+  animation-name: highlight;
+  animation-duration: 0.5s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
 }
 
 #mainBody {
@@ -30,17 +60,30 @@ header h1 {
   position: absolute;
   margin-right: auto;
   margin-left: 25px;
+  animation-name: flashme;
+  animation-duration: 1s;
+  animation-delay: 15s;
+  animation-iteration-count: infinite;
 }
 
 /*gameboards*/
 
-.games {
+@keyframes bodycolor {
+  from {background-color: #F2FFE3;}
+  to {background-color: #F00600;}
+}
+
+#games {
   height: 75%;
   width: 50%;
   background-color: #225378;
   position: relative;
-     margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
   display: inline-block;
+  animation-name: bodycolor;
+  animation-duration: 1s;
+  animation-delay: 11s;
+  animation-iteration-count: infinite;
 }
 
 .wrapper {
@@ -49,15 +92,31 @@ header h1 {
 }
 
 .wrapper h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
   text-align: center;
   color: #EB7F00;
 }
-.gameboard {
+
+@keyframes grow {
+  from {height: 310px;}
+  from  {width: 330px;}
+  to {height: 400px;}
+  to {width: 420px;}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+#gameboard {
   width: 330px;
   height: 310px;
   border: 1px solid #EB7F00;
   z-index: 1;
   margin: 0 auto;
+  animation-name: grow;
+  animation-duration: 1s;
+  animation-delay: 10s;
+  animation-iteration-count: infinite;
 }
 
 .tile {
@@ -73,7 +132,7 @@ header h1 {
   font-family: Arial;
   font-size: 50px;
   font-weight: 600;
-   border: 0px;
+  border: 0px;
 }
 
 .table tr {
@@ -89,32 +148,53 @@ header h1 {
 }
 
 /*player info*/
+@keyframes player {
+  0% {background-color: #F2FFE3;}
+  25% {background-color: #E37E05;}
+  50% {background-color: #820AE8;}
+  75% {background-color: #1595A3;}
+  100% {background-color: #EB7F00;}
+}
 
 #playerOne {
   height: 250px;
   width: 250px;
   position: relative;
-    margin-right: 5px;
-    margin-top: 15%;
-    margin-left: 20px;
-    float: left;
+  margin-right: 5px;
+  margin-top: 15%;
+  margin-left: 20px;
+  float: left;
   background-color: #F2FFE3;
   color: #225378;
+  animation-name: player;
+  animation-duration: 10s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
 }
 
 #playerTwo {
   height: 250px;
   width: 250px;
   position: relative;
-    margin-left: 5px;
-    margin-top: 15%;
-    margin-right: 20px;
-    float: right;
+  margin-left: 5px;
+  margin-top: 15%;
+  margin-right: 20px;
+  float: right;
   background-color: #F2FFE3;
   color: #225378;
+  animation-name: player;
+  animation-duration: 5s;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
 }
 
 /*right sidebar*/
+
+
+@keyframes colorful {
+  from {background-color: #ACF0F2;}
+  to {background-color: #FFFF00;}
+}
 
 aside {
   background-color: #ACF0F2;
@@ -123,10 +203,16 @@ aside {
   font-size: 105;
   float: right;
   position: relative;
-    margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
+  animation-name: colorful;
+  animation-duration: 1s;
+  animation-delay: 13s;
+  animation-iteration-count: infinite;
 }
 
 aside h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
   text-align: center;
   color: #EB7F00;
 }
@@ -134,55 +220,65 @@ aside h1 {
 
 /*left sidebar and contents*/
 
-.leftsidebar {
+#leftsidebar {
   background-color: #ACF0F2;
   float: left;
   width: 25%;
   height: 75%;
   position: relative;
-     margin: 15% 0% 2% 0%;
+  margin: 15% 0% 2% 0%;
+  animation-name: colorful;
+  animation-duration: 1s;
+  animation-delay: 13s;
+  animation-iteration-count: infinite;
 }
 
-.leftsidebar p {
+#leftsidebar p {
   color: #225378;
 }
 
+#leftsidebar h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 40px;
+  color: #EB7F00;
+}
+
 #randomPlay {
-    width: 200px;
-    margin: 0 auto;
-    margin-top: 25%%;
-    margin-bottom: 10%;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10%%;
+  margin-bottom: 10%;
 }
 
 .randomPlay-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:10px solid #F2FFE3;
-    overflow:hidden;
-    background: #225378;
-    box-shadow: 0 0 3px gray;
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  border:10px solid #F2FFE3;
+  overflow:hidden;
+  background: #225378;
+  box-shadow: 0 0 3px gray;
 }
 
 .randomPlay-circle:hover {
-    background:#EB7F00;
+  background:#EB7F00;
 }
 
 #randomPlay p {
-    display:block;
-    float:left;
-    width:100%;
-    padding-top:50%;
-    padding-bottom:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:#ACF0F2;
-    font-family:Verdana;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+  padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+  text-align:center;
+  color:#ACF0F2;
+  font-family:Verdana;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 #playerHistory {
@@ -190,9 +286,9 @@ aside h1 {
   width: 250px;
   background-color: #F2FFE3;
   position: relative;
-    margin: 0 auto;
-    z-index: 3;
-    margin-bottom: 10%;
+  margin: 0 auto;
+  z-index: 3;
+  margin-bottom: 10%;
 }
 
 #playerHistory h3 {
@@ -202,40 +298,40 @@ aside h1 {
 }
 
 #newGame {
-    width: 200px;
-    margin: 0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .newGame-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:10px solid #F2FFE3;
-    margin-top: 10px;
-    overflow:hidden;
-    background: #225378;
-    box-shadow: 0 0 3px gray;
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  border:10px solid #F2FFE3;
+  margin-top: 10px;
+  overflow:hidden;
+  background: #225378;
+  box-shadow: 0 0 3px gray;
 }
 
 .newGame-circle:hover {
-    background:#EB7F00;
+  background:#EB7F00;
 }
 
 #newGame p {
-    display:block;
-    float:left;
-    width:100%;
-    padding-top:50%;
-    padding-bottom:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:#ACF0F2;
-    font-family:Verdana;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+  padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+  text-align:center;
+  color:#ACF0F2;
+  font-family:Verdana;
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /*footer*/
@@ -246,12 +342,11 @@ footer {
   padding-bottom: 5px;
   color: #1595A3 ;
   font-size: 90%;
-  font-family: arial, helvetica, sans-serif;
   font-weight: medium;
   text-align: center;
   float: bottom;
   position: absolute;
-    padding: 15px;
-    padding-bottom: 30px;
-    margin: 3% 0% 0% 0%;
+  padding: 15px;
+  padding-bottom: 30px;
+  margin: 3% 0% 0% 0%;
 }
