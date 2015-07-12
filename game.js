@@ -1,5 +1,7 @@
 'use strict';
 
+var $ = require('jQuery');
+
 $(document).ready( function () {
   getPlayers();
   gameClick();
@@ -73,7 +75,7 @@ setTimeout(function(){
       alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
     }
   });
-}, 9000); // changed from 11500
+}, 11500); // changed from 11500
 
 }); // end document.ready
 
