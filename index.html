@@ -1,25 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Tic Tac Code</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
-  <script type="text/javascript" src="index.js" defer charset="utf-8"></script>
-  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic Tac Code</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
 
-  <header>
-    <h1>Sorry in advance</h1>
-  </header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <h1>Sorry in advance</h1>
+    </nav>
 
-  <div id="mainBody">
+    <div class="container-fluid">
 
-    <div id="games">
+      <div class="left col-md-3"> <!-- formerly leftsidebar -->
+       <h1>Try Me</h1>
+
+       <button type="button" class="randomPlay btn btn-info">
+        <p>Random Move</p>
+      </button>
+
+      <div class="playerHistory">
+        <h3>Winner History</h3>
+      </div>
+
+      <button type="button" class="newGame btn btn-info">
+        <p>New Game</p>
+      </button>
+
+    </div> <!-- end leftsidebar  -->
+
+    <div class="center col-md-6"> <!-- formery games -->
 
       <div class="wrapper">
         <h1>Tic Tac Toe</h1>
@@ -44,50 +63,32 @@
 
         </div><br>
 
-        <button type="button" id="clear">Clear</button>
+        <button type="button" class="clear btn btn-default">Play Again</button>
 
-        <div id="playerOne">
+        <div class="playerOne">
         </div>
 
-        <div id="playerTwo">
+        <div class="playerTwo">
         </div>
 
       </div> <!-- end wrap -->
 
     </div> <!-- end games -->
 
-    <div id="leftsidebar">
-     <h1>Try Me</h1>
-     <div id="randomPlay">
-      <div class="randomPlay-circle">
-        <p>Random Move</p>
-      </div>
+    <div class="aside col-md-3"> <!-- formerly aside -->
+      <h1>User Output</h1>
     </div>
 
-    <div id="playerHistory">
-      <h3>Winner History</h3>
-    </div>
+  </div> <!-- end main body -->
 
-    <div id="newGame">
-      <div class="newGame-circle">
-        <p>New Game</p>
-      </div>
-    </div>
-
-  </div> <!-- end leftsidebar  -->
-
-  <aside id="eventOutput">
-    <h1>User Output</h1>
-  </aside>
-
-  <footer>
+  <footer class="footer">
     &copy; 2015, Cara Clarke<br>
     WDI Project One<br>
     I hope you enjoyed my ridiculous game
   </footer>
 
-</div> <!-- end main body -->
-
-<script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="game.js" type="text/javascript" charset="utf-8" async defer></script> <!-- my jquery -->
 </body>
 </html>

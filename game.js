@@ -4,14 +4,14 @@ $(document).ready( function () {
   getPlayers();
   gameClick();
 
-  $('#clear').on('click', function() {
+  $('.clear').on('click', function() {
     $("td.cell").html("");
     $("#eventOutput").html("<h1>User Output</h1>");
   }); // end clear
 
  // left side bar buttons
 
- $('#randomPlay').on('click', function() {
+ $('.randomPlay').on('click', function() {
   alert("Wow you must have a sense of adventure. This button makes a random move but it may not necessarily be a move for you. Hit OK to continue ya daredevil.");
 
   var playRandom = Math.random();
@@ -44,8 +44,8 @@ $(document).ready( function () {
 
 }); // end randomPlay
 
-$('#newGame').on('click', function() {
-  $("#playerHistory").html("<h3>Winner History</h3>");
+$('.newGame').on('click', function() {
+  $(".playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.length === 3) {
@@ -54,7 +54,7 @@ $('#newGame').on('click', function() {
   } else if (newUsers.length === 2) {
     alert("Must not have a lot of friends.");
     $("td.cell").html("");
-    $("#eventOutput").html("<h1>User Output</h1>");
+    $(".aside").html("<h1>User Output</h1>");
   } else {
     alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
   }
@@ -73,7 +73,7 @@ setTimeout(function(){
       alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
     }
   });
-}, 11000);
+}, 9000); // changed from 11500
 
 }); // end document.ready
 
@@ -82,8 +82,8 @@ function getPlayers () {
   var playerTwo = prompt("Welcome Player Two! Enter your name below.");
 
   if (playerOne && playerTwo) {
-    $("#playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
-    $("#playerTwo").html("<h2>" + playerTwo + "</h2><p>You are O!</p>");
+    $(".playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
+    $(".playerTwo").html("<h2>" + playerTwo + "</h2><p>You are O!</p>");
   }
 }
 
@@ -168,7 +168,7 @@ function stopAnimation (element) {
 } // end stop animation
 
 function addEventOutputTracking (eventName, outputText, extraText) {
-  var node = $("#eventOutput");
+  var node = $(".aside");
   var pChildNode = $("<p>");
 
   pChildNode.html(eventName + outputText + extraText);
@@ -176,7 +176,7 @@ function addEventOutputTracking (eventName, outputText, extraText) {
 } // end AEOT
 
 function gameHistory (winner, outputText, extraText) {
-  var node = $("#playerHistory");
+  var node = $(".playerHistory");
   var pChildNode = $("<p>");
 
   pChildNode.html(winner + outputText);
