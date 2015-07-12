@@ -212,10 +212,6 @@ body {
 
 .left {
   background-color: #ACF0F2;
-  float: left;
-  width: 25%;
-  height: 75%;
-  position: relative;
   content: center;
   animation-name: colorful;
   animation-duration: 1s;
