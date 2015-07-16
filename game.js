@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready( function () {
+
   getPlayers();
   gameClick();
 
@@ -73,11 +74,11 @@ setTimeout(function(){
       alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
     }
   });
-}, 11500); // changed from 11500
+}, 11500);
 
 }); // end document.ready
 
-function getPlayers () {
+function getPlayers() {
   var playerOne = prompt("Welcome Player One! Enter your name below.");
   var playerTwo = prompt("Welcome Player Two! Enter your name below.");
 
@@ -85,9 +86,9 @@ function getPlayers () {
     $(".playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
     $(".playerTwo").html("<h2>" + playerTwo + "</h2><p>You are O!</p>");
   }
-}
+};
 
-function gameClick () {
+function gameClick() {
   var turn = "X";
 
   $("td.cell").on("click", function(cell){
@@ -163,23 +164,22 @@ function check() {
   }
 } // end check
 
-function stopAnimation (element) {
+function stopAnimation(element) {
   $("*").css("animation", "none");
-} // end stop animation
+}; // end stop animation
 
-function addEventOutputTracking (eventName, outputText, extraText) {
+function addEventOutputTracking(eventName, outputText, extraText) {
   var node = $(".aside");
   var pChildNode = $("<p>");
 
   pChildNode.html(eventName + outputText + extraText);
   node.append(pChildNode);
-} // end AEOT
+}; // end AEOT
 
-function gameHistory (winner, outputText, extraText) {
+function gameHistory(winner, outputText, extraText) {
   var node = $(".playerHistory");
   var pChildNode = $("<p>");
 
   pChildNode.html(winner + outputText);
   node.append(pChildNode);
-} // end GH
-
+}; // end GH

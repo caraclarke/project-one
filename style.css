@@ -274,10 +274,10 @@ body {
 .newGame {
   width: 175px;
   height: 175px;
-  margin: 10px 0px 5px 0px;
-  border-radius: 50%;
   overflow: hidden;
+  margin: 10px 0px 5px 0px;
   border:10px solid #F2FFE3;
+  border-radius: 50%;
   background: #225378;
   box-shadow: 0 0 3px gray;
 }
