@@ -154,6 +154,7 @@ body {
   float: left;
   background-color: #F2FFE3;
   color: #225378;
+  text-transform: capitalize;
   animation-name: player;
   animation-duration: 10s;
   animation-delay: 12s;
@@ -168,6 +169,7 @@ body {
   float: right;
   background-color: #F2FFE3;
   color: #225378;
+  text-transform: capitalize;
   animation-name: player;
   animation-duration: 5s;
   animation-delay: 12s;

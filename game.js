@@ -1,7 +1,5 @@
-'use strict';
-
 $(document).ready( function () {
-
+  'use strict';
   var tokenToPlayer = {'X':'','Y':''}
   var turn = "X";
 
@@ -49,24 +47,24 @@ $(document).ready( function () {
   }); // end clear
 
   setTimeout(function(){
-  $("body").on("mousedown", function() {
-    var stop = prompt("For $8,000 a month I will stop. Yes or no?");
+    $("body").on("mousedown", function() {
+      var stop = prompt("For $8,000 a month I will stop. Yes or no?");
 
-    if (stop.length === 3) {
-      stopAnimation();
-      $("body").off("mousedown");
-    } else if (stop.length === 2) {
-      alert("Have it your way you sicko.");
-    } else {
-      alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
-    }
-  });
-}, 11500);
+      if (stop.toLowerCase() === "yes") {
+        stopAnimation();
+        $("body").off("mousedown");
+      } else if (stop.toLowerCase() === "no") {
+        alert("Have it your way you sicko.");
+      } else {
+        alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+      }
+    });
+  }, 11500);
 
  // left side bar buttons
 
-  $('.randomPlay').on('click', function() {
-    alert("Wow you must have a sense of adventure.");
+ $('.randomPlay').on('click', function() {
+  alert("Wow you must have a sense of adventure.");
 
     // Check if board is full
     var found = false;
@@ -92,10 +90,10 @@ $(document).ready( function () {
   $(".playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
-  if (newUsers.length === 3) {
+  if (newUsers.toLowerCase() === "yes") {
     alert("Well aren't we popular.");
     getPlayers();
-  } else if (newUsers.length === 2) {
+  } else if (newUsers.toLowerCase() === "no") {
     alert("Must not have a lot of friends.");
     $("td.cell").html("");
     $(".aside").html("<h1>User Output</h1>");
@@ -108,8 +106,8 @@ $(document).ready( function () {
   var win = false;
   var winnerName = "";
   var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-              [$("#4").html(),  $("#5").html(),   $("#6").html()],
-              [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+  [$("#4").html(),  $("#5").html(),   $("#6").html()],
+  [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
   // Tie
   var full = true;
