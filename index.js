@@ -1,8 +1,8 @@
 $(function() {
   'use strict';
   var gameWatcher;
-  //  var sa = '//localhost:3000';
-  var sa = 'https://young-citadel-2431.herokuapp.com';
+  //  var sa = '//localhost:5000';
+  var sa = 'http://ttt.wdibos.com/';
 
   $('#register').on('click', function(e){
      $.ajax(sa + '/register', {  // variable sa with '/register' tacked on
@@ -155,3 +155,4 @@ $(function() {
 // headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
 // ruby -run -e httpd . -p 5000
 
+// setTimeout?
