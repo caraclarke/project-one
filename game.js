@@ -1,7 +1,7 @@
 $(document).ready( function () {
-  'use strict';
-  var tokenToPlayer = {'X':'','Y':''}
-  var turn = "X";
+ 'use strict';
+ var tokenToPlayer = {'X':'','Y':''}
+ var turn = "X";
 
   var getPlayers = function() {
     var playerOne = prompt("Welcome Player One! Enter your name below.");
@@ -36,10 +36,62 @@ $(document).ready( function () {
         }
         check();
       }
-    }); // end td
+      }); // end td
   } // end playerTurn
 
   playerTurn();
+
+  var check = function() {
+    var win = false;
+    var winnerName = "";
+    var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
+    [$("#4").html(),  $("#5").html(),   $("#6").html()],
+    [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+
+    // Tie
+    var full = true;
+    for (var i = 0; i < cells.length; i++) {
+      for (var j = 0; j < cells[i].length; j++) {
+        if (cells[i][j] === "") {
+          full = false;
+        }
+      }
+    }
+
+    if (full) {
+      alert("Tie!");
+      addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
+      gameHistory("Nobody won the game. ", "Get it the fuck together.");
+      return;
+    }
+
+    for (var i = 0; i < cells.length && !win; i++) {
+      // Check Horizontal, i means rows
+      if (cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
+        win = true;
+        winnerName = tokenToPlayer[cells[i][0]];
+      } else { // Check Vertical
+        // i now means columns
+        win = (cells[0][i] !== "" && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]);
+        winnerName = tokenToPlayer[cells[0][i]];
+      }
+    }
+    if (!win) {
+      if (cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
+        win = true;
+        winnerName = tokenToPlayer[cells[1][1]];
+      } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
+        win = true;
+        winnerName = tokenToPlayer[cells[1][1]];
+      }
+    }
+
+    if (win) {
+      alert(winnerName + " Wins!");
+      addEventOutputTracking("<strong>" + winnerName, " wins this round!", " Oh yeah " + winnerName + ".</strong>");
+      gameHistory(winnerName, " won.");
+    }
+  } // end check
 
   $('.clear').on('click', function() {
     $("td.cell").html("");
@@ -87,72 +139,20 @@ $(document).ready( function () {
   });
 
  $('.newGame').on('click', function() {
-  $(".playerHistory").html("<h3>Winner History</h3>");
-  var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
+    var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
-  if (newUsers.toLowerCase() === "yes") {
-    alert("Well aren't we popular.");
-    getPlayers();
-  } else if (newUsers.toLowerCase() === "no") {
-    alert("Must not have a lot of friends.");
-    $("td.cell").html("");
-    $(".aside").html("<h1>User Output</h1>");
-  } else {
-    alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
-  }
-}); // end newGame
-
- var check = function() {
-  var win = false;
-  var winnerName = "";
-  var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-  [$("#4").html(),  $("#5").html(),   $("#6").html()],
-  [$("#7").html(),  $("#8").html(),   $("#9").html()]];
-
-  // Tie
-  var full = true;
-  for (var i = 0; i < cells.length; i++) {
-    for (var j = 0; j < cells[i].length; j++) {
-      if (cells[i][j] === "") {
-        full = false;
-      }
+    if (newUsers.toLowerCase() === "yes") {
+      $(".playerHistory").html("<h3>Winner History</h3>");
+      alert("Well aren't we popular.");
+      getPlayers();
+    } else if (newUsers.toLowerCase() === "no") {
+      alert("Must not have a lot of friends.");
+      $("td.cell").html("");
+      $(".aside").html("<h1>User Output</h1>");
+    } else {
+      alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
     }
-  }
-
-  if (full) {
-    alert("Tie!");
-    addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
-    gameHistory("Nobody won the game. ", "Get it the fuck together.");
-    return;
-  }
-
-  for (var i = 0; i < cells.length && !win; i++) {
-    // Check Horizontal, i means rows
-    if (cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[i][0]];
-    } else { // Check Vertical
-      // i now means columns
-      win = (cells[0][i] !== "" && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]);
-      winnerName = tokenToPlayer[cells[0][i]];
-    }
-  }
-  if (!win) {
-    if (cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[1][1]];
-    } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[1][1]];
-    }
-  }
-
-  if (win) {
-    alert(winnerName + " Wins!");
-    addEventOutputTracking("<strong>" + winnerName, " wins this round!", " Oh yeah " + winnerName + ".</strong>");
-    gameHistory(winnerName, " won.");
-  }
-} // end check
+  }); // end newGame
 
 }); // end document.ready
 
