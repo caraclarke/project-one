@@ -50,6 +50,10 @@ body {
   animation-iteration-count: infinite;
 }
 
+.navbar-default input {
+  color: #000;
+}
+
 .container-fluid {
   animation-name: flashme;
   animation-duration: 1s;

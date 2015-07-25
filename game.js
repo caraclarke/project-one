@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready( function () {
+
   var tokenToPlayer = {'X':'','Y':''}
   var turn = "X";
 
@@ -14,46 +15,33 @@ $(document).ready( function () {
       $(".playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
       $(".playerTwo").html("<h2>" + playerTwo + "</h2><p>You are O!</p>");
     }
-  }
+  };
+
   getPlayers();
 
-  $('.randomPlay').on('click', function() {
-    alert("Wow you must have a sense of adventure.");
-  // Check if board is full
+  var playerTurn = function () {
+    $("td.cell").on("click", function(cell){
+      var cellElement = $("#cell");
 
-  var found = false;
-  while(!found) {
-    var randomCellNumber = parseInt(Math.random() * 9) + 1;
-    var cellElement = $("#" + randomCellNumber);
-
-    if(cellElement.html() !== "X" && cellElement.html() !== "O") {
-      cellElement.html(turn);
-      found = true;
-    }
-  }
-});
-
-  $("td.cell").on("click", function(cell){
-    var cellElement = $("#cell");
-
-    if (cellElement.html() != "X" && cellElement.html() != "O") {
-      cellElement.html(turn);
-      if (turn == "X"){
-        $(this).html("X");
-        turn = "O";
-        alert("Wow cool move.");
-        addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
-      } else{
-        $(this).html("O");
-        turn = "X";
-        alert("Wow cool move.");
-        addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
+      if (cellElement.html() != "X" && cellElement.html() != "O") {
+        cellElement.html(turn);
+        if (turn == "X"){
+          $(this).html("X");
+          turn = "O";
+          alert("Wow cool move.");
+          addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
+        } else {
+          $(this).html("O");
+          turn = "X";
+          alert("Wow cool move.");
+          addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
+        }
+        check();
       }
-      check();
-      alert("Did you win yet?");
-    }
+    }); // end td
+  } // end playerTurn
 
-  }); // end td
+  playerTurn();
 
   $('.clear').on('click', function() {
     $("td.cell").html("");
@@ -77,6 +65,29 @@ $(document).ready( function () {
 
  // left side bar buttons
 
+  $('.randomPlay').on('click', function() {
+    alert("Wow you must have a sense of adventure.");
+
+    // Check if board is full
+    var found = false;
+    while (!found) {
+      var randomCellNumber = parseInt(Math.random() * 9) + 1;
+      var cellElement = $("#" + randomCellNumber);
+
+      if (cellElement.html() !== "X" && cellElement.html() !== "O") {
+        if (turn == "X") {
+          cellElement.html(turn);
+          found = true;
+          turn = "O";
+        } else if (turn == "O") {
+          cellElement.html(turn);
+          found = true;
+          turn = "X";
+        }
+      }
+    }
+  });
+
  $('.newGame').on('click', function() {
   $(".playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
@@ -94,42 +105,42 @@ $(document).ready( function () {
 }); // end newGame
 
  var check = function() {
+  var win = false;
+  var winnerName = "";
   var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-  [$("#4").html(),  $("#5").html(),   $("#6").html()],
-  [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+              [$("#4").html(),  $("#5").html(),   $("#6").html()],
+              [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
-  // All full (tie)
+  // Tie
   var full = true;
-  for(var i = 0; i < cells.length; i++) {
-    for(var j = 0; j < cells[i].length; j++) {
-      if(cells[i][j] === "") {
+  for (var i = 0; i < cells.length; i++) {
+    for (var j = 0; j < cells[i].length; j++) {
+      if (cells[i][j] === "") {
         full = false;
       }
     }
   }
-  if(full) {
+
+  if (full) {
     alert("Tie!");
     addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
     gameHistory("Nobody won the game. ", "Get it the fuck together.");
     return;
   }
 
-  var win = false;
-  var winnerName = "";
-
-  for(var i = 0; i < cells.length && !win; i++) {
-    // Check Horizontal
-    if(cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
+  for (var i = 0; i < cells.length && !win; i++) {
+    // Check Horizontal, i means rows
+    if (cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
       win = true;
       winnerName = tokenToPlayer[cells[i][0]];
     } else { // Check Vertical
-      // Note: i is something totally different now; it means columns here
+      // i now means columns
       win = (cells[0][i] !== "" && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]);
       winnerName = tokenToPlayer[cells[0][i]];
     }
   }
-  if(!win) {
-    if(cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
+  if (!win) {
+    if (cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
       win = true;
       winnerName = tokenToPlayer[cells[1][1]];
     } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
@@ -138,7 +149,7 @@ $(document).ready( function () {
     }
   }
 
-  if(win) {
+  if (win) {
     alert(winnerName + " Wins!");
     addEventOutputTracking("<strong>" + winnerName, " wins this round!", " Oh yeah " + winnerName + ".</strong>");
     gameHistory(winnerName, " won.");
@@ -151,7 +162,7 @@ var stopAnimation = function (element) {
   $("*").css("animation", "none");
 }; // end stop animation
 
-function addEventOutputTracking(eventName, outputText, extraText) {
+var addEventOutputTracking = function (eventName, outputText, extraText) {
   var node = $(".aside");
   var pChildNode = $("<p>");
 
@@ -159,7 +170,7 @@ function addEventOutputTracking(eventName, outputText, extraText) {
   node.append(pChildNode);
 }; // end AEOT
 
-function gameHistory(winner, outputText, extraText) {
+var gameHistory = function (winner, outputText, extraText) {
   var node = $(".playerHistory");
   var pChildNode = $("<p>");
 
