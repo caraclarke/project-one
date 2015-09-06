@@ -3,7 +3,6 @@
 $(document).ready( function () {
   var tokenToPlayer = {'X':'','Y':''};
   var turn = "X";
-  var animationTimeout;
 
   var stopAnimation = function () {
     $("*").css("animation", "none");
