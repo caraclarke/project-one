@@ -4,6 +4,29 @@ $(document).ready( function () {
   var tokenToPlayer = {'X':'','Y':''};
   var turn = "X";
 
+  var stopAnimation = function () {
+    $("*").css("animation", "none");
+  }; // end stop animation
+
+  // var animationEndCheck = function() {
+  setTimeout(function(){
+    $("body").on("mousedown", function() {
+        var stop = prompt("For $8,000 a month I will stop. Yes or no?");
+
+        if (stop.length === 3) {
+          stopAnimation();
+          $("body").off("mousedown");
+        } else if (stop.length === 2) {
+          alert("Enjoy.");
+        } else {
+          alert("Your input wasn't recognized. Please enter yes or no.");
+        }
+      });
+    }, 11500);
+  // };
+
+  // animationEndCheck();
+
   var getPlayers = function() {
     var playerOne = prompt("Welcome Player One! Enter your name below.");
     var playerTwo = prompt("Welcome Player Two! Enter your name below.");
@@ -16,7 +39,22 @@ $(document).ready( function () {
     }
   };
 
-  getPlayers();
+  var gameMode = function() {
+    var whichMode = prompt("Would you like to play the easy or hard version? Please enter 'Easy' or 'Hard'.");
+
+    if (whichMode.toLowerCase() === "easy") {
+      stopAnimation();
+      getPlayers();
+      $("body").on("mousedown").off();
+    } else if (whichMode.toLowerCase() === "hard") {
+      getPlayers();
+    } else {
+      alert("Please check your input and try again.");
+      gameMode();
+    }
+  };
+
+gameMode();
 
   var playerTurn = function () {
     $("td.cell").on("click", function(cell){
@@ -46,8 +84,8 @@ $(document).ready( function () {
     var win = false;
     var winnerName = "";
     var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-    [$("#4").html(),  $("#5").html(),   $("#6").html()],
-    [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+                [$("#4").html(),  $("#5").html(),   $("#6").html()],
+                [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
     // Tie
     var full = true;
@@ -99,21 +137,6 @@ $(document).ready( function () {
     $("#eventOutput").html("<h1>User Output</h1>");
   }); // end clear
 
-  setTimeout(function(){
-  $("body").on("mousedown", function() {
-    var stop = prompt("For $8,000 a month I will stop. Yes or no?");
-
-    if (stop.length === 3) {
-      stopAnimation();
-      $("body").off("mousedown");
-    } else if (stop.length === 2) {
-      alert("Enjoy.");
-    } else {
-      alert("Your input wasn't recognized. Please enter yes or no.");
-    }
-  });
-}, 11500);
-
  // left side bar buttons
  $('.randomPlay').on('click', function() {
   alert("Wow you must have a sense of adventure.");
@@ -142,9 +165,9 @@ $(document).ready( function () {
   $(".playerHistory").html("<h3>Winner History</h3>");
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
-  if (newUsers.length === 3) {
+  if (newUsers.toLowerCase() === "yes") {
     getPlayers();
-  } else if (newUsers.length === 2) {
+  } else if (newUsers.toLowercase() === "no") {
     $("td.cell").html("");
     $(".aside").html("<h1>User Output</h1>");
   } else {
@@ -204,22 +227,7 @@ var check = function() {
   }
 }; // end check
 
- $('.newGame').on('click', function() {
-    if (newUsers.toLowerCase() === "yes") {
-      $(".playerHistory").html("<h3>Winner History</h3>");
-      getPlayers();
-    } else if (newUsers.toLowerCase() === "no") {
-      $("td.cell").html("");
-      $(".aside").html("<h1>User Output</h1>");
-    } else {
-      alert("Your input wasn't recognized. Please answer yes or no.");
-    }
-  }); // end newGame
 }); // end document ready
-
-var stopAnimation = function (element) {
-  $("*").css("animation", "none");
-}; // end stop animation
 
 var addEventOutputTracking = function (eventName, outputText) {
   var node = $(".aside");
