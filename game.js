@@ -65,12 +65,12 @@ gameMode();
           $(this).html("X");
           turn = "O";
           alert("Wow cool move.");
-          addEventOutputTracking("Player One", " - it is your turn. <br>" + " O is up next.");
+          addEventOutputTracking("Player One - it is your turn. <br>O is up next.");
         } else {
           $(this).html("O");
           turn = "X";
           alert("Wow cool move.");
-          addEventOutputTracking("Player Two", " - it is your turn. <br>" + " X is up next.");
+          addEventOutputTracking("Player Two - it is your turn. <br>X is up next.");
         }
         check();
       }
@@ -98,8 +98,8 @@ gameMode();
 
     if (full) {
       alert("Tie!");
-      addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
-      gameHistory("Nobody won the game. ", "Get it the fuck together.");
+      addEventOutputTracking("<strong>Nobody wins!</strong>");
+      gameHistory("Nobody won the game.");
       return;
     }
 
@@ -126,7 +126,7 @@ gameMode();
 
     if (win) {
       alert(winnerName + " Wins!");
-      addEventOutputTracking("<strong>" + winnerName, " wins this round!", " Oh yeah " + winnerName + ".</strong>");
+      addEventOutputTracking("<strong>" + winnerName, " wins this round! Oh yeah " + winnerName + ".</strong>");
       gameHistory(winnerName, " won.");
     }
   } // end check
@@ -247,18 +247,18 @@ var check = function() {
 //     }, 11500);
 // };
 
-var addEventOutputTracking = function (eventName, outputText) {
+var addEventOutputTracking = function (outputText) {
   var node = $(".aside");
   var pChildNode = $("<p>");
 
-  pChildNode.html(eventName + outputText);
+  pChildNode.html(outputText);
   node.append(pChildNode);
 }; // end AEOT
 
-var gameHistory = function (winner, outputText) {
+var gameHistory = function (winnerName, outputText) {
   var node = $(".playerHistory");
   var pChildNode = $("<p>");
 
-  pChildNode.html(winner + outputText);
+  pChildNode.html(winnerName + outputText);
   node.append(pChildNode);
 }; // end GH
