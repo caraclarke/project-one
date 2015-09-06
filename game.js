@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 $(document).ready( function () {
 
-  var tokenToPlayer = {'X':'','Y':''}
+  var tokenToPlayer = {'X':'','Y':''};
   var turn = "X";
 
   var getPlayers = function() {
@@ -29,17 +29,17 @@ $(document).ready( function () {
           $(this).html("X");
           turn = "O";
           alert("Wow cool move.");
-          addEventOutputTracking("Player One", " - it is your turn. ", "Don't screw this up." + "<br>" + " O is up next.");
+          addEventOutputTracking("Player One", " - it is your turn. <br>" + " O is up next.");
         } else {
           $(this).html("O");
           turn = "X";
           alert("Wow cool move.");
-          addEventOutputTracking("Player Two", " - it is your turn. ", "Don't screw this up." + "<br>" + " X is up next.");
+          addEventOutputTracking("Player Two", " - it is your turn. <br>" + " X is up next.");
         }
         check();
       }
     }); // end td
-  } // end playerTurn
+  }; // end playerTurn
 
   playerTurn();
 
@@ -56,9 +56,9 @@ $(document).ready( function () {
       stopAnimation();
       $("body").off("mousedown");
     } else if (stop.length === 2) {
-      alert("Have it your way you sicko.");
+      alert("Enjoy.");
     } else {
-      alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+      alert("Your input wasn't recognized. Please enter yes or no.");
     }
   });
 }, 11500);
@@ -93,14 +93,12 @@ $(document).ready( function () {
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.length === 3) {
-    alert("Well aren't we popular.");
     getPlayers();
   } else if (newUsers.length === 2) {
-    alert("Must not have a lot of friends.");
     $("td.cell").html("");
     $(".aside").html("<h1>User Output</h1>");
   } else {
-    alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+    alert("Your input wasn't recognized. Please enter yes or no.");
   }
 }); // end newGame
 
@@ -123,8 +121,8 @@ $(document).ready( function () {
 
   if (full) {
     alert("Tie!");
-    addEventOutputTracking("<strong>Nobody wins!", " Put some fucking effort in next time.", "</strong>");
-    gameHistory("Nobody won the game. ", "Get it the fuck together.");
+    addEventOutputTracking("<strong>Nobody wins!</strong>");
+    gameHistory("Nobody won the game.");
     return;
   }
 
@@ -162,15 +160,15 @@ var stopAnimation = function (element) {
   $("*").css("animation", "none");
 }; // end stop animation
 
-var addEventOutputTracking = function (eventName, outputText, extraText) {
+var addEventOutputTracking = function (eventName, outputText) {
   var node = $(".aside");
   var pChildNode = $("<p>");
 
-  pChildNode.html(eventName + outputText + extraText);
+  pChildNode.html(eventName + outputText);
   node.append(pChildNode);
 }; // end AEOT
 
-var gameHistory = function (winner, outputText, extraText) {
+var gameHistory = function (winner, outputText) {
   var node = $(".playerHistory");
   var pChildNode = $("<p>");
 
