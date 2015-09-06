@@ -1,7 +1,6 @@
 "use strict";
 
 $(document).ready( function () {
-
   var tokenToPlayer = {'X':'','Y':''};
   var turn = "X";
 
@@ -153,12 +152,12 @@ $(document).ready( function () {
   }
 }); // end newGame
 
- var check = function() {
+var check = function() {
   var win = false;
   var winnerName = "";
   var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-              [$("#4").html(),  $("#5").html(),   $("#6").html()],
-              [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+  [$("#4").html(),  $("#5").html(),   $("#6").html()],
+  [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
   // Tie
   var full = true;
@@ -195,22 +194,28 @@ $(document).ready( function () {
     } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
       win = true;
       winnerName = tokenToPlayer[cells[1][1]];
-    var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
+    }
+  }
 
+  if (win) {
+    alert(winnerName + " Wins!");
+    addEventOutputTracking("<strong>" + winnerName, " wins this round!</strong>");
+    gameHistory(winnerName, " won.");
+  }
+}; // end check
+
+ $('.newGame').on('click', function() {
     if (newUsers.toLowerCase() === "yes") {
       $(".playerHistory").html("<h3>Winner History</h3>");
-      alert("Well aren't we popular.");
       getPlayers();
     } else if (newUsers.toLowerCase() === "no") {
-      alert("Must not have a lot of friends.");
       $("td.cell").html("");
       $(".aside").html("<h1>User Output</h1>");
     } else {
-      alert("Your input wasn't recognized. It's a simple yes or no question dipshit.");
+      alert("Your input wasn't recognized. Please answer yes or no.");
     }
   }); // end newGame
-
-}); // end document.ready
+}); // end document ready
 
 var stopAnimation = function (element) {
   $("*").css("animation", "none");
