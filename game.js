@@ -14,16 +14,16 @@ $(document).ready( function () {
       $("body").on("mousedown", function() {
         var stop = prompt("For $8,000 a month I will stop. Yes or no?");
 
-          if (stop.toLowerCase() === "yes") {
-            stopAnimation();
-            $("body").off("mousedown");
-          } else if (stop.toLowerCase() === "no") {
-            alert("Enjoy.");
-          } else {
-            alert("Your input wasn't recognized. Please enter yes or no.");
-          }
-        });
-      }, 11500);
+        if (stop.toLowerCase() === "yes") {
+          stopAnimation();
+          $("body").off("mousedown");
+        } else if (stop.toLowerCase() === "no") {
+          alert("Enjoy.");
+        } else {
+          alert("Your input wasn't recognized. Please enter yes or no.");
+        }
+      });
+    }, 11500);
   };
 
   var getPlayers = function() {
@@ -53,7 +53,7 @@ $(document).ready( function () {
     }
   };
 
-gameMode();
+  gameMode();
 
   var playerTurn = function () {
     $("td.cell").on("click", function(cell){
@@ -79,12 +79,57 @@ gameMode();
 
   playerTurn();
 
+  $('.clear').on('click', function() {
+    $("td.cell").html("");
+    $("#eventOutput").html("<h1>User Output</h1>");
+  }); // end clear
+
+  // left side bar buttons
+  $('.randomPlay').on('click', function() {
+    alert("Wow you must have a sense of adventure.");
+
+    // Check if board is full
+    var found = false;
+    while (!found) {
+      var randomCellNumber = parseInt(Math.random() * 9) + 1;
+      var cellElement = $("#" + randomCellNumber);
+
+      if (cellElement.html() !== "X" && cellElement.html() !== "O") {
+        if (turn == "X") {
+          cellElement.html(turn);
+          found = true;
+          turn = "O";
+        } else if (turn == "O") {
+          cellElement.html(turn);
+          found = true;
+          turn = "X";
+        }
+      }
+    }
+  });
+
+  $('.newGame').on('click', function() {
+    $(".playerHistory").html("<h3>Winner History</h3>");
+    var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
+
+    if (newUsers.toLowerCase() === "yes") {
+      gameMode();
+      getPlayers();
+    } else if (newUsers.toLowercase() === "no") {
+      gameMode();
+      $("td.cell").html("");
+      $(".aside").html("<h1>User Output</h1>");
+    } else {
+      alert("Your input wasn't recognized. Please enter yes or no.");
+    }
+  }); // end newGame
+
   var check = function() {
     var win = false;
     var winnerName = "";
     var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-                [$("#4").html(),  $("#5").html(),   $("#6").html()],
-                [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+    [$("#4").html(),  $("#5").html(),   $("#6").html()],
+    [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
     // Tie
     var full = true;
@@ -126,126 +171,12 @@ gameMode();
 
     if (win) {
       alert(winnerName + " Wins!");
-      addEventOutputTracking("<strong>" + winnerName, " wins this round! Oh yeah " + winnerName + ".</strong>");
+      addEventOutputTracking("<strong>" + winnerName, " wins this round!</strong>");
       gameHistory(winnerName, " won.");
     }
-  } // end check
-
-  $('.clear').on('click', function() {
-    $("td.cell").html("");
-    $("#eventOutput").html("<h1>User Output</h1>");
-  }); // end clear
-
- // left side bar buttons
- $('.randomPlay').on('click', function() {
-  alert("Wow you must have a sense of adventure.");
-
-    // Check if board is full
-    var found = false;
-    while (!found) {
-      var randomCellNumber = parseInt(Math.random() * 9) + 1;
-      var cellElement = $("#" + randomCellNumber);
-
-      if (cellElement.html() !== "X" && cellElement.html() !== "O") {
-        if (turn == "X") {
-          cellElement.html(turn);
-          found = true;
-          turn = "O";
-        } else if (turn == "O") {
-          cellElement.html(turn);
-          found = true;
-          turn = "X";
-        }
-      }
-    }
-  });
-
- $('.newGame').on('click', function() {
-  $(".playerHistory").html("<h3>Winner History</h3>");
-  var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
-
-  if (newUsers.toLowerCase() === "yes") {
-    gameMode();
-    getPlayers();
-  } else if (newUsers.toLowercase() === "no") {
-    gameMode();
-    $("td.cell").html("");
-    $(".aside").html("<h1>User Output</h1>");
-  } else {
-    alert("Your input wasn't recognized. Please enter yes or no.");
-  }
-}); // end newGame
-
-var check = function() {
-  var win = false;
-  var winnerName = "";
-  var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-  [$("#4").html(),  $("#5").html(),   $("#6").html()],
-  [$("#7").html(),  $("#8").html(),   $("#9").html()]];
-
-  // Tie
-  var full = true;
-  for (var i = 0; i < cells.length; i++) {
-    for (var j = 0; j < cells[i].length; j++) {
-      if (cells[i][j] === "") {
-        full = false;
-      }
-    }
-  }
-
-  if (full) {
-    alert("Tie!");
-    addEventOutputTracking("<strong>Nobody wins!</strong>");
-    gameHistory("Nobody won the game.");
-    return;
-  }
-
-  for (var i = 0; i < cells.length && !win; i++) {
-    // Check Horizontal, i means rows
-    if (cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[i][0]];
-    } else { // Check Vertical
-      // i now means columns
-      win = (cells[0][i] !== "" && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]);
-      winnerName = tokenToPlayer[cells[0][i]];
-    }
-  }
-  if (!win) {
-    if (cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[1][1]];
-    } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
-      win = true;
-      winnerName = tokenToPlayer[cells[1][1]];
-    }
-  }
-
-  if (win) {
-    alert(winnerName + " Wins!");
-    addEventOutputTracking("<strong>" + winnerName, " wins this round!</strong>");
-    gameHistory(winnerName, " won.");
-  }
-}; // end check
+  }; // end check
 
 }); // end document ready
-
-// var animationEndCheck = function() {
-//   var animationTimeout = setTimeout(function() {
-//     $("body").on("mousedown", function() {
-//       var stop = prompt("For $8,000 a month I will stop. Yes or no?");
-//
-//         if (stop.toLowerCase() === "yes") {
-//           stopAnimation();
-//           $("body").off("mousedown");
-//         } else if (stop.toLowerCase() === "no") {
-//           alert("Enjoy.");
-//         } else {
-//           alert("Your input wasn't recognized. Please enter yes or no.");
-//         }
-//       });
-//     }, 11500);
-// };
 
 var addEventOutputTracking = function (outputText) {
   var node = $(".aside");
