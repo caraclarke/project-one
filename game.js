@@ -3,29 +3,28 @@
 $(document).ready( function () {
   var tokenToPlayer = {'X':'','Y':''};
   var turn = "X";
+  var animationTimeout;
 
   var stopAnimation = function () {
     $("*").css("animation", "none");
   }; // end stop animation
 
-  // var animationEndCheck = function() {
-  setTimeout(function(){
-    $("body").on("mousedown", function() {
+  var animationEndCheck = function() {
+    var animationTimeout = setTimeout(function() {
+      $("body").on("mousedown", function() {
         var stop = prompt("For $8,000 a month I will stop. Yes or no?");
 
-        if (stop.length === 3) {
-          stopAnimation();
-          $("body").off("mousedown");
-        } else if (stop.length === 2) {
-          alert("Enjoy.");
-        } else {
-          alert("Your input wasn't recognized. Please enter yes or no.");
-        }
-      });
-    }, 11500);
-  // };
-
-  // animationEndCheck();
+          if (stop.toLowerCase() === "yes") {
+            stopAnimation();
+            $("body").off("mousedown");
+          } else if (stop.toLowerCase() === "no") {
+            alert("Enjoy.");
+          } else {
+            alert("Your input wasn't recognized. Please enter yes or no.");
+          }
+        });
+      }, 11500);
+  };
 
   var getPlayers = function() {
     var playerOne = prompt("Welcome Player One! Enter your name below.");
@@ -45,9 +44,9 @@ $(document).ready( function () {
     if (whichMode.toLowerCase() === "easy") {
       stopAnimation();
       getPlayers();
-      $("body").on("mousedown").off();
     } else if (whichMode.toLowerCase() === "hard") {
       getPlayers();
+      animationEndCheck();
     } else {
       alert("Please check your input and try again.");
       gameMode();
@@ -166,8 +165,10 @@ gameMode();
   var newUsers = prompt("Do you want to enter new users? Respond yes or no.");
 
   if (newUsers.toLowerCase() === "yes") {
+    gameMode();
     getPlayers();
   } else if (newUsers.toLowercase() === "no") {
+    gameMode();
     $("td.cell").html("");
     $(".aside").html("<h1>User Output</h1>");
   } else {
@@ -228,6 +229,23 @@ var check = function() {
 }; // end check
 
 }); // end document ready
+
+// var animationEndCheck = function() {
+//   var animationTimeout = setTimeout(function() {
+//     $("body").on("mousedown", function() {
+//       var stop = prompt("For $8,000 a month I will stop. Yes or no?");
+//
+//         if (stop.toLowerCase() === "yes") {
+//           stopAnimation();
+//           $("body").off("mousedown");
+//         } else if (stop.toLowerCase() === "no") {
+//           alert("Enjoy.");
+//         } else {
+//           alert("Your input wasn't recognized. Please enter yes or no.");
+//         }
+//       });
+//     }, 11500);
+// };
 
 var addEventOutputTracking = function (eventName, outputText) {
   var node = $(".aside");
