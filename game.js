@@ -1,7 +1,6 @@
 'use strict';
 $(document).ready( function () {
   var tokenToPlayer = {'X':'','O':''};
-  console.log(tokenToPlayer);
   var turn = "X";
   var mode;
 
@@ -70,7 +69,7 @@ $(document).ready( function () {
             alert("Wow cool move.");
           }
           addEventOutputTracking("Player One - it is your turn. <br>O is up next.");
-        } else { // TODO change to else if?
+        } else {
           $(this).html("O");
           turn = "X";
           if (mode === "hard") {
@@ -142,6 +141,7 @@ $(document).ready( function () {
       for (var j = 0; j < cells[i].length; j++) {
         if (cells[i][j] === "") {
           full = false;
+          // winnerName = "Nobody";
         }
       }
     }
@@ -149,7 +149,7 @@ $(document).ready( function () {
     if (full) {
       alert("Tie!");
       addEventOutputTracking("<strong>Nobody wins!</strong>");
-      gameHistory("Nobody won the game.");
+      gameHistory("Nobody", " won the game.");
       return;
     }
 
@@ -185,7 +185,7 @@ $(document).ready( function () {
 
 var addEventOutputTracking = function (outputText) {
   var node = $(".aside");
-  var pChildNode = $("<p>"); //TODO when winner is O showing as undefined
+  var pChildNode = $("<p>");
 
   pChildNode.html(outputText);
   node.append(pChildNode);
@@ -193,7 +193,7 @@ var addEventOutputTracking = function (outputText) {
 
 var gameHistory = function (winnerName, outputText) {
   var node = $(".playerHistory");
-  var pChildNode = $("<p>"); //TODO tie also displays undefined text
+  var pChildNode = $("<p>");
 
   pChildNode.html(winnerName + outputText);
   node.append(pChildNode);
