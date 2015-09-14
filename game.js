@@ -1,7 +1,6 @@
-"use strict";
-
+'use strict';
 $(document).ready( function () {
-  var tokenToPlayer = {'X':'','Y':''};
+  var tokenToPlayer = {'X':'','O':''};
   console.log(tokenToPlayer);
   var turn = "X";
   var mode;
@@ -31,7 +30,7 @@ $(document).ready( function () {
     var playerOne = prompt("Welcome Player One! Enter your name below.");
     var playerTwo = prompt("Welcome Player Two! Enter your name below.");
     tokenToPlayer.X = playerOne;
-    tokenToPlayer.Y = playerTwo;
+    tokenToPlayer.O = playerTwo;
 
     if (playerOne && playerTwo) {
       $(".playerOne").html("<h2>" + playerOne + "</h2><p>You are X! Your turn is first.</p>");
