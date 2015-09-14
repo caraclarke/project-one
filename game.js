@@ -2,7 +2,9 @@
 
 $(document).ready( function () {
   var tokenToPlayer = {'X':'','Y':''};
+  console.log(tokenToPlayer);
   var turn = "X";
+  var mode;
 
   var stopAnimation = function () {
     $("*").css("animation", "none");
@@ -43,9 +45,11 @@ $(document).ready( function () {
     if (whichMode.toLowerCase() === "easy") {
       stopAnimation();
       getPlayers();
+      mode = "easy";
     } else if (whichMode.toLowerCase() === "hard") {
       getPlayers();
       animationEndCheck();
+      mode = "hard";
     } else {
       alert("Please check your input and try again.");
       gameMode();
@@ -58,17 +62,21 @@ $(document).ready( function () {
     $("td.cell").on("click", function(cell){
       var cellElement = $("#cell");
 
-      if (cellElement.html() != "X" && cellElement.html() != "O") {
+      if (cellElement.html() !== "X" && cellElement.html() !== "O") {
         cellElement.html(turn);
-        if (turn == "X"){
+        if (turn === "X") {
           $(this).html("X");
           turn = "O";
-          alert("Wow cool move.");
+          if (mode === "hard") {
+            alert("Wow cool move.");
+          }
           addEventOutputTracking("Player One - it is your turn. <br>O is up next.");
-        } else {
+        } else { // TODO change to else if?
           $(this).html("O");
           turn = "X";
-          alert("Wow cool move.");
+          if (mode === "hard") {
+            alert("Wow cool move.");
+          }
           addEventOutputTracking("Player Two - it is your turn. <br>X is up next.");
         }
         check();
@@ -94,11 +102,11 @@ $(document).ready( function () {
       var cellElement = $("#" + randomCellNumber);
 
       if (cellElement.html() !== "X" && cellElement.html() !== "O") {
-        if (turn == "X") {
+        if (turn === "X") {
           cellElement.html(turn);
           found = true;
           turn = "O";
-        } else if (turn == "O") {
+        } else if (turn === "O") {
           cellElement.html(turn);
           found = true;
           turn = "X";
@@ -114,8 +122,7 @@ $(document).ready( function () {
     if (newUsers.toLowerCase() === "yes") {
       gameMode();
       getPlayers();
-    } else if (newUsers.toLowercase() === "no") {
-      gameMode();
+    } else if (newUsers.toLowerCase() === "no") {
       $("td.cell").html("");
       $(".aside").html("<h1>User Output</h1>");
     } else {
@@ -125,10 +132,10 @@ $(document).ready( function () {
 
   var check = function() {
     var win = false;
-    var winnerName = "";
+    var winnerName;
     var cells = [ [$("#1").html(),  $("#2").html(),   $("#3").html()],
-    [$("#4").html(),  $("#5").html(),   $("#6").html()],
-    [$("#7").html(),  $("#8").html(),   $("#9").html()]];
+                [$("#4").html(),  $("#5").html(),   $("#6").html()],
+                [$("#7").html(),  $("#8").html(),   $("#9").html()]];
 
     // Tie
     var full = true;
@@ -149,20 +156,20 @@ $(document).ready( function () {
 
     for (var i = 0; i < cells.length && !win; i++) {
       // Check Horizontal, i means rows
-      if (cells[i][0] !== "" && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
+      if (cells[i][0] !== "" && cells[i][0] === cells[i][1] && cells[i][1] === cells[i][2]) {
         win = true;
         winnerName = tokenToPlayer[cells[i][0]];
       } else { // Check Vertical
         // i now means columns
-        win = (cells[0][i] !== "" && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]);
+        win = (cells[0][i] !== "" && cells[0][i] === cells[1][i] && cells[1][i] === cells[2][i]);
         winnerName = tokenToPlayer[cells[0][i]];
       }
     }
     if (!win) {
-      if (cells[1][1] !== "" && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
+      if (cells[1][1] !== "" && cells[0][0] === cells[1][1] && cells[1][1] === cells[2][2]) {
         win = true;
         winnerName = tokenToPlayer[cells[1][1]];
-      } else if (cells[1][1] !== "" && cells[0][2]== cells[1][1] && cells[1][1] == cells[2][0]) {
+      } else if (cells[1][1] !== "" && cells[0][2] === cells[1][1] && cells[1][1] === cells[2][0]) {
         win = true;
         winnerName = tokenToPlayer[cells[1][1]];
       }
@@ -170,7 +177,7 @@ $(document).ready( function () {
 
     if (win) {
       alert(winnerName + " Wins!");
-      addEventOutputTracking("<strong>" + winnerName, " wins this round!</strong>");
+      addEventOutputTracking("<strong>" + winnerName + " wins this round!</strong>");
       gameHistory(winnerName, " won.");
     }
   }; // end check
@@ -179,7 +186,7 @@ $(document).ready( function () {
 
 var addEventOutputTracking = function (outputText) {
   var node = $(".aside");
-  var pChildNode = $("<p>");
+  var pChildNode = $("<p>"); //TODO when winner is O showing as undefined
 
   pChildNode.html(outputText);
   node.append(pChildNode);
@@ -187,7 +194,7 @@ var addEventOutputTracking = function (outputText) {
 
 var gameHistory = function (winnerName, outputText) {
   var node = $(".playerHistory");
-  var pChildNode = $("<p>");
+  var pChildNode = $("<p>"); //TODO tie also displays undefined text
 
   pChildNode.html(winnerName + outputText);
   node.append(pChildNode);
