@@ -119,7 +119,6 @@ $(document).ready( function () {
 
     if (newUsers.toLowerCase() === "yes") {
       gameMode();
-      getPlayers();
     } else if (newUsers.toLowerCase() === "no") {
       $("td.cell").html("");
       $(".aside").html("<h1>User Output</h1>");
